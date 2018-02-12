@@ -22,9 +22,9 @@ When the user enters the site, they should see a greeting page.
 
 #### [Heroku Link](https://google.com)
 
-#### [Trello Board](https://google.com)
+#### [Trello Board](https://trello.com/b/khV7RNu0)
 
-#### [Figma Wireframes](https://google.com)
+#### [Figma Wireframes](https://www.figma.com/file/EKVjDeNgOgwPaCBCyHciCmSm/Team-5---Vagabond-framework)
 
 #### [Figma ERD](https://google.com)
 
