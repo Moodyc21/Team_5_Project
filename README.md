@@ -20,7 +20,7 @@ When the user enters the site, they should see a greeting page.
 
 * Wow
 
-#### [Heroku Link](https://google.com)
+#### [Heroku Link](https://team-project.herokuapp.com/)
 
 #### [Trello Board](https://trello.com/b/khV7RNu0)
 
