@@ -14,11 +14,11 @@ When the user enters the site, they should see a greeting page.
 
 ### Reach Goals
 
-* So Many
+* So Many 
 
 ### Final Ice-box
 
-* Wow
+* Wow -cool
 
 #### [Heroku Link](https://google.com)
 
