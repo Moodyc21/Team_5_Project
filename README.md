@@ -1,24 +1,62 @@
-# README
+# VAGABOND
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Team 5
 
-Things you may want to cover:
+## Welcome WDI 13
 
-* Ruby version
+Description
 
-* System dependencies
+## App Overview
 
-* Configuration
+### MVP
 
-* Database creation
+When the user enters the site, they should see a greeting page.
 
-* Database initialization
+### Reach Goals
 
-* How to run the test suite
+* So Many
 
-* Services (job queues, cache servers, search engines, etc.)
+### Final Ice-box
 
-* Deployment instructions
+* Wow
 
-* ...
+#### [Heroku Link](https://google.com)
+
+#### [Trello Board](https://google.com)
+
+#### [Figma Wireframes](https://google.com)
+
+#### [Figma ERD](https://google.com)
+
+#### Technologies used
+
+* Heroku - website hosting
+* Git - Source Control Management
+* Node - js runtime for development
+* NPM - package manager
+* Express - backend web framework
+* Mongoose - async DB handler
+* React - view handler
+* React-Router - view router
+* Redux - view state handling
+* dotenv - loads environment variables, such as the DB
+* body-parser - translator of rawtext
+* trello - user story tracking
+* figma - wire-framing
+* vs code - text editor of choice
+* imgur - image hosting
+* youtube - video/music hosting
+
+#### Approach taken
+
+* Did all the things
+
+#### Unsolved problems
+
+* Heat-death of the universe
+
+#### Notes to yourself
+
+* DFTBA
+
+### WDI13 Project 3.5
