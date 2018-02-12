@@ -4,7 +4,6 @@ import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import styled from 'styled-components'
 
-
 class SplashPage extends Component {
   render() {
     return (
@@ -22,10 +21,9 @@ class SplashPage extends Component {
 
 export default connect(null, {push})(SplashPage)
 
-
 // Styled-Components
 
-const Container = styled.div`
+const Container = styled.div `
     width:100vw;
     height:100vh;
     background: linear-gradient(transparent,transparent,rgb(33,33,33)),rgba(33,33,33,0.01);
@@ -40,4 +38,4 @@ const Container = styled.div`
         text-shadow:2px 2px 2px #000000;
     }
     }
-
+    `
