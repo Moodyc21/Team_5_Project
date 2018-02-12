@@ -4,6 +4,7 @@ import {Route} from 'react-router'
 import {ConnectedRouter} from 'react-router-redux'
 import createHistory from 'history/createBrowserHistory'
 import configureStore from './configureStore.js'
+
 import SplashPage from './components/SplashPage.js'
 import UserPage from './components/user/UserPage.js'
 
