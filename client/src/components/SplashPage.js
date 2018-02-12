@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
-import styled from ' styled components'
+import styled from 'styled-components'
 
 
 class SplashPage extends Component {
@@ -41,3 +41,4 @@ const Container = styled.div`
     }
     }
 
+`
