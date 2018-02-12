@@ -1,5 +1,6 @@
 {
-  "name": "team-project",
+  "version": "0.1",
+  "name": "Team_Project",
   "engines": {
     "node": "8.7.0"
   },

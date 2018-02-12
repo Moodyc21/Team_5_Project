@@ -34,13 +34,12 @@ When the user enters the site, they should see a greeting page.
 * Git - Source Control Management
 * Node - js runtime for development
 * NPM - package manager
-* Express - backend web framework
-* Mongoose - async DB handler
+* Ruby on Rails - backend web framework
+* ActiveRecord - async DB handler
 * React - view handler
-* React-Router - view router
+* React-Redux-Router - view router
 * Redux - view state handling
 * dotenv - loads environment variables, such as the DB
-* body-parser - translator of rawtext
 * trello - user story tracking
 * figma - wire-framing
 * vs code - text editor of choice
