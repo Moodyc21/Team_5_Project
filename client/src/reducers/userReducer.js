@@ -5,6 +5,9 @@ function userReducer(state = [], action) {
     case 'GET_USERS':
       return [...action.usersFromDatabase]
 
+    case 'GET_ONE_USER':
+      return [...action.userFromDatabase]
+
     case 'CREATE_USER':
       return [
         ...state,
@@ -23,12 +26,12 @@ function userReducer(state = [], action) {
 }
 
 function updateObjectInArray(array, action) {
-  return array.map((user) => {
-    if (user._id !== action.editedUserData.id) {
-      return user
+  return array.map((users) => {
+    if (users.id !== action.editedUserData.id) {
+      return users
     }
     return {
-      ...user,
+      ...users,
       ...action.editedUserData
     }
   })
