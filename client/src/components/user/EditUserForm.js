@@ -5,19 +5,35 @@ import {editUserInDatabase, getOneUserRoute} from '../../actions/thunk.actions.j
 
 class EditUserForm extends Component {
 
-  componentWillMount() {
-    this
+  async componentWillMount() {
+    const something = await this
       .props
       .getOneUserRoute(this.props.match.params.userId)
+
+    console.log("Mounting.")
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log("In another method")
+    console.log('', nextProps)
+    this.setState({
+      userBeingEdited: {
+        id: this.props.match.params.userId,
+        username: nextProps.userBeingEdited.username,
+        firstname: nextProps.userBeingEdited.firstname,
+        lastname: nextProps.userBeingEdited.lastname,
+        img_url: nextProps.userBeingEdited.img_url
+      }
+    })
+    // this.setState(userBeingEdited)
+  }
   state = {
     userBeingEdited: {
-      id: this.props.match.params.userId,
-      username: this.props.username,
-      firstname: this.props.firstname,
-      lastname: this.props.lastname,
-      img_url: this.props.img_url
+      id: "",
+      username: "",
+      firstname: "",
+      lastname: "",
+      img_url: ""
     }
   }
 
