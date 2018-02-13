@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import {getUserRoute, deleteUserFromDatabase} from '../../actions/thunk.actions.js'
 import EditUserForm from './EditUserForm.js'
-import NewUserForm from './NewUserForm.js'
 
 class UserPage extends Component {
   componentWillMount() {
@@ -27,6 +26,11 @@ class UserPage extends Component {
                   Username: {user.username}
                   <br/>
                   Firstname: {user.firstname}
+                  <br/>
+                  Lastname: {user.lastname}
+                  <br/>
+                  Image:
+                  <img src={user.image_url} alt={user.username}/>
                 </div>
                 <div>
                   User ID: {user._id}
