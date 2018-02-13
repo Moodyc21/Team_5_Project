@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {editUserInDatabase} from '../../actions/thunk.actions.js'
+import {push} from 'react-router-dom'
+import {editCityInDatabase} from '../../actions/thunk.actions.js'
 
-class EditUserForm extends Component {
+class EditCityForm extends Component {
 
   state = {
     cityBeingEdited: {
@@ -12,20 +13,21 @@ class EditUserForm extends Component {
   }
 
   handleChange = (event) => {
-    const updatedUser = {
-      ...this.state.userBeingEdited
+    const updatedCity = {
+      ...this.state.cityBeingEdited
     }
 
     const inputField = event.target.name
     const inputValue = event.target.value
-    updatedUser[inputField] = inputValue
-    this.setState({userBeingEdited: updatedUser})
+    updatedCity[inputField] = inputValue
+    this.setState({cityBeingEdited: updatedCity})
   }
 
-  handleEditUser = () => {
+  handleEditCity = () => {
     this
       .props
-      .editUserInDatabase(this.state.userBeingEdited)
+      .editCityInDatabase(this.state.cityBeingEdited)
+      this.props.push(`/cities`)
   }
 
   render() {
@@ -33,10 +35,20 @@ class EditUserForm extends Component {
       <div>
         <input
           type="text"
-          name="username"
+          name="name"
           onChange={this.handleChange}
-          value={this.state.userBeingEdited.username}/>
-        <button onClick={this.handleEditUser}>
+          value={this.state.cityBeingEdited.name}/>
+          <input
+          type="text"
+          name="location"
+          onChange={this.handleChange}
+          value={this.state.cityBeingEdited.location}
+          <input
+          type="text"
+          name="img_url"
+          onChange={this.handleChange}
+          value={this.state.cityBeingEdited.img_url}/>/>
+        <button onClick={this.handleEditCity}>
           Edit
         </button>
       </div>
@@ -44,4 +56,4 @@ class EditUserForm extends Component {
   }
 }
 
-export default connect(null, {editUserInDatabase})(EditUserForm)
+export default connect(null, {editCityInDatabase, push})(EditCityForm)
