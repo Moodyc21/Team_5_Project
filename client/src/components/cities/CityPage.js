@@ -32,7 +32,7 @@ class CityPage extends Component {
                   <img src={city.img_url} alt={city.name}/>
                 </div>
                 <div>
-                  city ID: {city._id}
+                  city ID: {city.id}
                 </div>
                 <div>
                   <EditCityForm city={city}/>
