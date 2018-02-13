@@ -42,12 +42,12 @@ class EditCityForm extends Component {
           type="text"
           name="location"
           onChange={this.handleChange}
-          value={this.state.cityBeingEdited.location}
+          value={this.state.cityBeingEdited.location}/>
           <input
           type="text"
           name="img_url"
           onChange={this.handleChange}
-          value={this.state.cityBeingEdited.img_url}/>/>
+          value={this.state.cityBeingEdited.img_url}/>
         <button onClick={this.handleEditCity}>
           Edit
         </button>
