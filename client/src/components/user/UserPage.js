@@ -24,7 +24,9 @@ class UserPage extends Component {
             return (
               <div key={i}>
                 <div>
-                  Username: {user.userName}
+                  Username: {user.username}
+                  <br/>
+                  Firstname: {user.firstname}
                 </div>
                 <div>
                   User ID: {user._id}
