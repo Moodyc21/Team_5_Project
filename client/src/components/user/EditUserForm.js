@@ -25,7 +25,6 @@ class EditUserForm extends Component {
     const updatedUser = {
       ...this.state.userBeingEdited
     }
-
     const inputField = event.target.name
     const inputValue = event.target.value
     updatedUser[inputField] = inputValue
@@ -90,7 +89,7 @@ class EditUserForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {users: state.users}
+  return {userBeingEdited: state.users[0]}
 }
 
 export default connect(mapStateToProps, {getOneUserRoute, editUserInDatabase, push})(EditUserForm)
