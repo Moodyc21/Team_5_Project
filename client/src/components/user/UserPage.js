@@ -15,8 +15,16 @@ class UserPage extends Component {
     return (
       <Body>
         <Header>
-          <h1>Wecome to User Page</h1>
+          <h2>Wecome to User Page</h2>
         </Header>
+        <div>
+          <button onClick={() => this.props.push(`/users/new`)}>
+            New User
+          </button>
+        </div>
+        <button onClick={() => this.props.push('/')}>
+          Home
+        </button>
         <Container>
 
           {this
@@ -33,7 +41,7 @@ class UserPage extends Component {
                    </div>
 
                   <div>
-                    <button onClick={() => this.props.editUserFromDatabase(user)}>
+                    <button onClick={this.props.handleEditUser}>
                       Edit
                   </button>
                   
@@ -47,14 +55,7 @@ class UserPage extends Component {
             })}
 
         </Container>
-        <div>
-          <button onClick={() => this.props.push(`/users/new`)}>
-            Make a new UserPage
-          </button>
-        </div>
-        <button onClick={() => this.props.push('/')}>
-          Go back to SplashPage.js
-        </button>
+        
 
       </Body>
     )
@@ -88,24 +89,26 @@ const Body = styled.div`
     button{
       border:1px solid black;
       background:none;
-      width: 25vh;
+      width: 125px;
+      height: 45px;
       padding:7.5px;
       font-size: 15px;
+      text-align: center;
       margin:5px;
       font-family: 'Montserrat', sans-serif;
-      background:rgba(255,255,255,0.35);
-    
+      background:rgba(255,255,255,0.45);
       border-radius: 5px;
       cursor: pointer;
       &:hover{
         color: white;
-      background:rgba(0,0,0,0.15)
-      }
-`;
+      background:rgba(0,0,0,0.15);
+      };
+`
 
 const Container = styled.div`
     display: flex;
     flex-direction: row;
+    flex-wrap:wrap;
     justify-content: center;
     align-items: center;
     color:black;
@@ -181,11 +184,12 @@ const UserBox = styled.div`
     button{
       border:1px solid black;
       background:none;
-      width: 11.5vh;
+      width: 75px;
+      height: 30px;
       padding:7.5px;
       font-size: 15px;
       font-family: 'Montserrat', sans-serif;
-      align-self:center;
+      flex-self:center;
       border-radius: 5px;
       cursor: pointer;
       &:hover{
