@@ -1,9 +1,4 @@
-function userReducer(state = [
-  {
-    username: 'Gandalf',
-    _id: '1'
-  }
-], action) {
+function userReducer(state = [], action) {
 
   switch (action.type) {
 
