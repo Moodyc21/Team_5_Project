@@ -4,4 +4,9 @@ Rails.application.routes.draw do
       resources :posts
     end
   end
+  namespace :api do
+    resources :users do
+      resources :posts
+    end
+  end
 end
