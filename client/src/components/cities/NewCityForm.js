@@ -23,9 +23,14 @@ class NewCityForm extends Component {
     this
       .props
       .sendNewCityToDatabase(this.state.newCityForm)
+      this
+      .props
+      .push(`/cities`)
     this.setState({
       newCityForm: {
-        name: ""
+        name: "",
+        location: "",
+        img_url: ""
       }
     })
   };
@@ -36,13 +41,30 @@ class NewCityForm extends Component {
         <input
           className="newCity"
           type="text"
-          name="Cityname"
+          name="name"
           onChange={this.handleNewCityChange}
-          value={this.state.newCityForm.name}/>
+          value={this.state.newCityForm.name}
+          placeholder="Name"/>
+          <br/>
+          <input
+          className="newCity"
+          type="text"
+          name="location"
+          onChange={this.handleNewCityChange}
+          value={this.state.newCityForm.location}
+          placeholder="Location"/>
+          <br/>
+          <input
+          className="newCity"
+          type="text"
+          name="img_url"
+          onChange={this.handleNewCityChange}
+          value={this.state.newCityForm.img_url}
+          placeholder="Image"/>
         <button onClick={this.handleAddNewCity}>Add City</button>
       </div>
     )
   }
 }
 
-export default connect(null, {sendNewCityToDatabase})(NewCityForm)
+export default connect(null, {sendNewCityToDatabase, push})(NewCityForm)
