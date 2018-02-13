@@ -24,6 +24,10 @@ export default connect(null, {push})(SplashPage)
 // Styled-Components
 
 const Container = styled.div `
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     width:100vw;
     height:100vh;
     top:0;
@@ -39,21 +43,20 @@ const Container = styled.div `
     background-image:linear-gradient(white,transparent,transparent,transparent,transparent),url(https://pbs.twimg.com/media/BzrxuvVIgAAj7YE.jpg:large);
     h1{
      position: absolute;
-     top:75px;
+     top:65px;
     left:100px;
     }
     button{
       border:1px solid black;
       background:none;
-      margin-left: 180px;
+      margin-left: 150px;
+
       width:100px;
-      padding:5px;
+      padding:7.5px;
       font-size: 25px;
       font-family: 'Montserrat', sans-serif;
+      align-self:flex-start;
       border-radius: 5px;
-      position: absolute;
-      top:260px;
-      left:50px;
       cursor: pointer;
       &:hover{
       background:rgba(0,0,0,0.15)
