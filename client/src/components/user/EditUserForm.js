@@ -70,32 +70,8 @@ class EditUserForm extends Component {
           type="text"
           name="username"
           onChange={this.handleChange}
-          value={this.state.userBeingEdited.username}
-          placeholder="Username"/>
-        <br/>
-        <input
-          className="editUser"
-          type="text"
-          name="firstname"
-          onChange={this.handleChange}
-          value={this.state.userBeingEdited.firstname}
-          placeholder="First Name"/>
-        <br/>
-        <input
-          className="editUser"
-          type="text"
-          name="lastname"
-          onChange={this.handleChange}
-          value={this.state.userBeingEdited.lastname}
-          placeholder="Last Name"/>
-        <br/>
-        <input
-          className="editUser"
-          type="text"
-          name="img_url"
-          onChange={this.handleChange}
-          value={this.state.userBeingEdited.img_url}
-          placeholder="Profile picture URL"/>
+          value={this.state.userBeingEdited.username}/>
+          <br/>
         <button onClick={this.handleEditUser}>
           Edit
         </button>
