@@ -43,7 +43,9 @@ class UserPage extends Component {
             )
           })}
         <div>
-          <NewUserForm/>
+          <button onClick={() => this.props.push(`/users/new`)}>
+            Make a new UserPage
+          </button>
         </div>
         <button onClick={() => this.props.push('/')}>
           Go back to SplashPage.js

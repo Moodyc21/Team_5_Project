@@ -20,13 +20,16 @@ class CityPage extends Component {
         {this
           .props
           .cities
-          .map((user, i) => {
+          .map((city, i) => {
             return (
               <div key={i}>
                 <div>
-                  Username: {city.name}
+                  City Name: {city.name}
                   <br/>
-                  Firstname: {city.firstname}
+                  Location: {city.location}
+                </div>
+                <div>
+                  <img src={city.img_url} alt={city.name}/>
                 </div>
                 <div>
                   city ID: {city._id}

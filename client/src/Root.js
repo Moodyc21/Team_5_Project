@@ -7,6 +7,7 @@ import configureStore from './configureStore.js'
 
 import SplashPage from './components/SplashPage.js'
 import UserPage from './components/user/UserPage.js'
+import NewUserForm from './components/user/NewUserForm.js'
 
 const history = createHistory()
 const store = configureStore(history)
@@ -18,6 +19,7 @@ const Root = () => (
       <div>
         <Route exact path="/" component={SplashPage}/>
         <Route exact path="/users" component={UserPage}/>
+        <Route exact path="/users/new" component={NewUserForm}/>
 
       </div>
     </ConnectedRouter>

@@ -5,9 +5,9 @@ import {editUserInDatabase} from '../../actions/thunk.actions.js'
 class EditUserForm extends Component {
 
   state = {
-    userBeingEdited: {
-      id: this.props.user._id,
-      username: this.props.user.username
+    cityBeingEdited: {
+      id: this.props.city._id,
+      cityname: this.props.city.name
     }
   }
 

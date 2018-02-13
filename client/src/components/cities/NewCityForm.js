@@ -1,31 +1,31 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {sendNewUserToDatabase} from '../../actions/thunk.actions.js'
+import {sendNewCityToDatabase} from '../../actions/thunk.actions.js'
 
-class UserForm extends Component {
+class NewCityForm extends Component {
   state = {
-    newUserForm: {}
+    newCityForm: {}
   }
 
-  handleNewUserChange = (event) => {
+  handleNewCityChange = (event) => {
     const attributeName = event.target.name
     const attributeValue = event.target.value
 
-    const newUserForm = {
-      ...this.state.newUserForm
+    const newCityForm = {
+      ...this.state.newCityForm
     }
-    newUserForm[attributeName] = attributeValue
+    newCityForm[attributeName] = attributeValue
 
-    this.setState({newUserForm})
+    this.setState({newCityForm})
   };
 
-  handleAddNewUser = () => {
+  handleAddNewCity = () => {
     this
       .props
-      .sendNewUserToDatabase(this.state.newUserForm)
+      .sendNewCityToDatabase(this.state.newCityForm)
     this.setState({
-      newUserForm: {
-        username: ""
+      newCityForm: {
+        name: ""
       }
     })
   };
@@ -34,15 +34,15 @@ class UserForm extends Component {
     return (
       <div>
         <input
-          className="newUser"
+          className="newCity"
           type="text"
-          name="username"
-          onChange={this.handleNewUserChange}
-          value={this.state.newUserForm.username}/>
-        <button onClick={this.handleAddNewUser}>Add User</button>
+          name="Cityname"
+          onChange={this.handleNewCityChange}
+          value={this.state.newCityForm.name}/>
+        <button onClick={this.handleAddNewCity}>Add City</button>
       </div>
     )
   }
 }
 
-export default connect(null, {sendNewUserToDatabase})(UserForm)
+export default connect(null, {sendNewCityToDatabase})(NewCityForm)
