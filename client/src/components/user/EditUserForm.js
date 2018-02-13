@@ -36,6 +36,7 @@ class EditUserForm extends Component {
           name="username"
           onChange={this.handleChange}
           value={this.state.userBeingEdited.username}/>
+          <br/>
         <button onClick={this.handleEditUser}>
           Edit
         </button>
