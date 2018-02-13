@@ -74,6 +74,20 @@ export function getUserRoute() {
   }
 }
 
+export function sendOneUserToState(userFromDatabase) {
+  return {type: 'GET_ONE_USER', userFromDatabase}
+}
+
+export function getOneUserRoute(userId) {
+  return function (dispatch) {
+    return axios
+      .get(`/api/users/${userId}`)
+      .then((response) => {
+        dispatch(sendOneUserToState(response.data))
+      })
+  }
+}
+
 export function sendNewUserToState(newUserData) {
   return {type: 'CREATE_USER', newUserData}
 }
@@ -89,10 +103,12 @@ export function sendNewUserToDatabase(newUserInfo) {
 }
 
 export function editedUserToState(editedUserData) {
+  console.log(editedUserData)
   return {type: 'EDIT_USER', editedUserData}
 }
 
 export function editUserInDatabase(editedUserInfo) {
+  console.log(editedUserInfo)
   return function (dispatch) {
     return axios
       .patch(`/api/users/${editedUserInfo.id}`, editedUserInfo)
