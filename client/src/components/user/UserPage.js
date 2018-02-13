@@ -33,7 +33,7 @@ class UserPage extends Component {
                   <img src={user.image_url} alt={user.username}/>
                 </div>
                 <div>
-                  User ID: {user.id}
+                  User ID: {user._id}
                 </div>
                 <div>
                   <EditUserForm user={user}/>
