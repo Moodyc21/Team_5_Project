@@ -107,11 +107,12 @@ export function deleteUserFromState(userToDeleteId) {
 }
 
 export function deleteUserFromDatabase(userToDeleteFromDatabase) {
+  console.log(userToDeleteFromDatabase)
   return function (dispatch) {
     return axios
-      .delete(`/api/users/${userToDeleteFromDatabase._id}`)
+      .delete(`/api/users/${userToDeleteFromDatabase.id}`)
       .then((response) => {
-        dispatch(deleteUserFromState(userToDeleteFromDatabase._id))
+        dispatch(deleteUserFromState(userToDeleteFromDatabase.id))
       })
   }
 }

@@ -15,7 +15,7 @@ function userReducer(state = [], action) {
       return updateObjectInArray(state, action)
 
     case 'DELETE_USER':
-      return state.filter(user => user._id !== action.userToDeleteId)
+      return state.filter(user => user.id !== action.userToDeleteId)
 
     default:
       return state
