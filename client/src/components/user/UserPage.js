@@ -30,7 +30,7 @@ class UserPage extends Component {
                   Lastname: {user.lastname}
                   <br/>
                   Image:
-                  <img src={user.image_url} alt={user.username}/>
+                  <img width="200" src={user.img_url} alt={user.username}/>
                 </div>
                 <div>
                   User ID: {user._id}
