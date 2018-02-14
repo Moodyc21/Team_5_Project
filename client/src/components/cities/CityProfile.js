@@ -22,11 +22,9 @@ class CityProfile extends Component {
           .map((city, i) => {
             if (city.id == cityId) {
               return (
-
                 <div key={i}>
                   <h2>
                     {city.name}</h2>
-
                   <div>
                     Name:{city.name}
                   </div>
@@ -40,13 +38,10 @@ class CityProfile extends Component {
                   <div onClick={() => this.props.push(`/cities/${city.id}/posts`)}>
                     <h3>Posts</h3>
                   </div>
-
                   <div>
                     Location : {city.location}
                   </div>
-
                   <br/>
-
                   <div>
                     <img src={city.img_url} alt={city.name}/>
                   </div>
