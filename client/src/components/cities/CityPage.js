@@ -18,12 +18,14 @@ class CityPage extends Component {
         <div>
           <h2>CityPage</h2>
         </div>
-        <div>
-          <NewCityForm />
-        </div>
         <button onClick={() => this.props.push('/')}>
           Home
         </button>
+        <br/>
+        <div>
+          <NewCityForm />
+        </div>
+       
         <Container>
 
 
@@ -91,20 +93,25 @@ const Body = styled.div`
     /* background-color: #212121; */
     input{
       display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       border:1px solid black;
       background:none;
       border-radius:2px;
-      width:80vh;
-      width: 10vh;
+      background:rgba(255,255,255,0.45);
+      width:30vh;
+      height: 4vh;
     }
     button{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       border:1px solid black;
       background:none;
-      width: 125px;
-      height: 45px;
+      width: 20vh;
+      height: 5vh;
       padding:7.5px;
       font-size: 15px;
       text-align: center;
@@ -128,16 +135,6 @@ const Container = styled.div`
     color:black;
     font-family: 'Montserrat', sans-serif;
     margin: 40px;
-    a{
-        text-decoration: none;
-        color:black;
-        &:hover{
-        color: #696969;
-        transform:translateY(2px);
-        text-shadow: 0px 0px 0px #bdbdbd;
-        z-index: 3;
-    }
-    }
 `;
 
 const DeleteButton = styled.div`
@@ -196,7 +193,7 @@ const CityBox = styled.div`
         box-shadow: 1.5px 1.5px 0px #7e7e7e;
         z-index: 3;
     }
-    input{
+    /* input{
       display: flex;
     flex-direction: column;
     justify-content: center;
@@ -205,7 +202,7 @@ const CityBox = styled.div`
       background:none;
       border-radius:2px;
       width: 20vh;
-    }
+    } */
     button{
       border:1px solid black;
       background:none;
