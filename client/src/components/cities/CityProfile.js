@@ -2,8 +2,7 @@ import React, {Component} from 'react'
 import styled from 'styled-components'
 import {connect} from 'react-redux'
 import {getCityRoute} from '../../actions/thunk.actions.js'
-
-// import {push} from 'react-router-redux' import axios from 'axios'
+import {push} from 'react-router-redux'
 
 class CityProfile extends Component {
 
@@ -38,9 +37,10 @@ class CityProfile extends Component {
                   <div>
                     <img src={city.img_url} alt={city.name}/>
                   </div>
-                  <div>
-                    {city.post}
+                  <div onClick={() => this.props.push(`/cities/${city.id}/posts`)}>
+                    <h3>Posts</h3>
                   </div>
+
                 </div>
               )
             }
@@ -55,7 +55,7 @@ const mapStateToProps = (state) => {
   return {cities: state.cities}
 }
 
-export default connect(mapStateToProps, {getCityRoute})(CityProfile);
+export default connect(mapStateToProps, {getCityRoute, push})(CityProfile);
 
 // /////////////////////////////////////////////////////////////////////////////
 // / / STYLED-COMPONENTS
