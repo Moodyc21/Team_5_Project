@@ -47,7 +47,7 @@ class EditCityForm extends Component {
     this
       .props
       .editCityInDatabase(this.state.cityBeingEdited)
-      .then((response) => {
+      .then(() => {
         (this.props.push(`/cities`))
       })
   }
@@ -70,7 +70,7 @@ class EditCityForm extends Component {
           name="location"
           onChange={this.handleChange}
           value={this.state.cityBeingEdited.location}/>
-          <br/>
+        <br/>
         <div>
           Image_url:</div>
         <input
@@ -78,7 +78,7 @@ class EditCityForm extends Component {
           name="img_url"
           onChange={this.handleChange}
           value={this.state.cityBeingEdited.img_url}/>
-          <br/>
+        <br/>
         <button onClick={this.handleEditCity}>
           Edit
         </button>
@@ -93,9 +93,10 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {getOneCityRoute, editCityInDatabase, push})(EditCityForm)
 
-/////////////////////////////////////////////////////////////////////////////////
-// STYLED-COMPONENTS
-/////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+// / STYLED-COMPONENTS
+// //////////////////////////////////////////////////////////////////////////////
+// /
 
 const Container = styled.div `
     display: flex;

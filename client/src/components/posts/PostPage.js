@@ -1,14 +1,15 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
-import {getPostRoute, deletePostFromDatabase} from '../../actions/thunk.actions.js'
+import {getPostsRoute, deletePostFromDatabase} from '../../actions/thunk.actions.js'
 import EditPostForm from './EditPostForm.js'
 
 class PostPage extends Component {
   componentWillMount() {
+    const cityId = this.props.match.params.cityId
     this
       .props
-      .getPostRoute()
+      .getPostsRoute(cityId)
   }
   render() {
     return (
@@ -27,9 +28,7 @@ class PostPage extends Component {
                   <br/>
                   Content: {post.content}
                 </div>
-                <div>
-                  Post ID: {post._id}
-                </div>
+
                 <div>
                   <EditPostForm post={post}/>
                 </div>
@@ -56,5 +55,4 @@ class PostPage extends Component {
 const mapStateToProps = (state) => {
   return {posts: state.posts}
 }
-export default connect(mapStateToProps, {push, getPostRoute, deletePostFromDatabase})(PostPage)
-
+export default connect(mapStateToProps, {push, getPostsRoute, deletePostFromDatabase})(PostPage)

@@ -1,15 +1,19 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 import {connect} from 'react-redux'
-import {getCityRoute} from '../../actions/thunk.actions.js'
+import {getCityRoute, getPostsRoute} from '../../actions/thunk.actions.js'
 import {push} from 'react-router-redux'
 
 class CityProfile extends Component {
 
   componentWillMount() {
+    const cityId = this.props.match.params.cityId;
     this
       .props
       .getCityRoute()
+      .then(() => {
+        (this.props.getPostsRoute(cityId))
+      })
   }
 
   render() {
@@ -47,7 +51,21 @@ class CityProfile extends Component {
                 </div>
               )
             }
-
+          })}
+        {this
+          .props
+          .posts
+          .map((post, i) => {
+            return (
+              <div key={i}>
+                <div onClick={() => this.props.push(`/cities/${cityId}/posts/${post.id}`)}>
+                  {post.title}
+                </div>
+                <div>
+                  {post.content}
+                </div>
+              </div>
+            )
           })}
       </Container>
     );
@@ -55,10 +73,10 @@ class CityProfile extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {cities: state.cities}
+  return {cities: state.cities, posts: state.posts}
 }
 
-export default connect(mapStateToProps, {getCityRoute, push})(CityProfile);
+export default connect(mapStateToProps, {getCityRoute, getPostsRoute, push})(CityProfile);
 
 // /////////////////////////////////////////////////////////////////////////////
 // / / STYLED-COMPONENTS
