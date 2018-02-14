@@ -10,13 +10,9 @@ class EditUserForm extends Component {
     this
       .props
       .getOneUserRoute(this.props.match.params.userId)
-
-    console.log("Mounting.")
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("In another method")
-    console.log('', nextProps)
     this.setState({
       userBeingEdited: {
         id: this.props.match.params.userId,
@@ -27,7 +23,6 @@ class EditUserForm extends Component {
         description: nextProps.userBeingEdited.description
       }
     })
-    // this.setState(userBeingEdited)
   }
   state = {
     userBeingEdited: {
@@ -60,17 +55,15 @@ class EditUserForm extends Component {
   }
 
   render() {
-
-    const userId = this.props.match.params.userId
-
     return (
       <Container>
         <div>
-          {/* User ID = {userId} */}
-         <h2> {this.state.userBeingEdited.username}</h2>
+          <h2>
+            {this.state.userBeingEdited.username}</h2>
         </div>
         <div>
-        <div> Username:</div>
+          <div>
+            Username:</div>
           <input
             className="editUser"
             type="text"
@@ -79,7 +72,8 @@ class EditUserForm extends Component {
             value={this.state.userBeingEdited.username}/>
         </div>
         <div>
-        <div> Firstname:</div>
+          <div>
+            Firstname:</div>
           <input
             className="editUser"
             type="text"
@@ -88,7 +82,8 @@ class EditUserForm extends Component {
             value={this.state.userBeingEdited.firstname}/>
         </div>
         <div>
-        <div> Lastname:</div>
+          <div>
+            Lastname:</div>
           <input
             className="editUser"
             type="text"
@@ -97,7 +92,8 @@ class EditUserForm extends Component {
             value={this.state.userBeingEdited.lastname}/>
         </div>
         <div>
-        <div> Image-URL:</div>
+          <div>
+            Image-URL:</div>
           <input
             className="editUser"
             type="text"
@@ -106,7 +102,8 @@ class EditUserForm extends Component {
             value={this.state.userBeingEdited.img_url}/>
         </div>
         <div>
-        <div> Description:</div>
+          <div>
+            Description:</div>
           <input
             className="editUser"
             type="text"
@@ -129,10 +126,9 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {getOneUserRoute, editUserInDatabase, push})(EditUserForm)
 
-/////////////////////////////////////////////////////////////////////////////////
-// STYLED-COMPONENTS
-/////////////////////////////////////////////////////////////////////////////////
-
+// /////////////////////////////////////////////////////////////////////////////
+// / / STYLED-COMPONENTS
+// /////////////////////////////////////////////////////////////////////////////
 
 const Container = styled.div `
     display: flex;
@@ -143,7 +139,7 @@ const Container = styled.div `
     color:black;
     width: 100%;
     position: absolute; 
-   
+    
     background-image:linear-gradient(white,transparent,transparent,transparent,transparent),url(https://pbs.twimg.com/media/BzrxuvVIgAAj7YE.jpg:large);
     top: 0;
     left: 0;

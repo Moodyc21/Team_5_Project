@@ -62,10 +62,9 @@ const mapStateToProps = (state) => {
 }
 export default connect(mapStateToProps, {push, getUserRoute, deleteUserFromDatabase})(UserPage)
 
-/////////////////////////////////////////////////////////////////////////////////
-// STYLED-COMPONENTS
-/////////////////////////////////////////////////////////////////////////////////
-
+// /////////////////////////////////////////////////////////////////////////////
+// / / STYLED-COMPONENTS
+// //////////////////////////////////////////////////////////////////////////////
 
 const Body = styled.div `
     display: flex;
@@ -130,14 +129,6 @@ const Header = styled.h1 `
     text-shadow: 2.5px 2.5px 0px #3f3f3f;
     /* border-bottom: thin solid white; */
 `;
-
-const Users = styled.div `
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap:wrap;
-    `
 
 const UserBox = styled.div `
     width: 27.5vh;
