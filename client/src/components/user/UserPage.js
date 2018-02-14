@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import styled from 'styled-components'
 import { getUserRoute, deleteUserFromDatabase } from '../../actions/thunk.actions.js'
-import EditUserForm from './EditUserForm.js'
+
 
 class UserPage extends Component {
   componentWillMount() {
@@ -41,11 +41,10 @@ class UserPage extends Component {
                    </div>
 
                   <div>
-                    <button onClick={this.props.handleEditUser}>
+                  <button onClick={() => this.props.push(`/users/:userId/edit`)}>
                       Edit
                   </button>
-                  
-                 
+
                     <button onClick={() => this.props.deleteUserFromDatabase(user)}>
                       Delete
                   </button>
