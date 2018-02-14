@@ -3,31 +3,49 @@ import styled from 'styled-components'
 import {connect} from 'react-redux'
 import {getOneUserRoute} from '../../actions/thunk.actions.js'
 
-// import {push} from 'react-router-redux' import axios from 'axios'
 
 class UserProfile extends Component {
 
     componentWillMount() {
-        const userId = this.props.match.params.id;
+        const userId = this.props.match.params.userId;
         this
             .props
             .getOneUserRoute(userId)
+        
     }
-    // fetchUserAndPostData = async(userId) => {     try {         const
-    // userResponse = await axios.get(`/api/users/${userId}`)         const
-    // postsResponse = await axios.get(`/api/users/${userId}/posts`)         await
-    // this.setState({user: userResponse.data, posts: postsResponse.data});     }
-    // catch (error) {         console.log(error)         await
-    // this.setState({error: error.message})     } }
+    componentWillReceiveProps(nextProps) {
+        this.setState({userBeingShown: {
+            id: this.props.match.params.userId,
+            username: nextProps.userBeingShown.username,
+            firstname: nextProps.userBeingShown.firstname,
+            lastname: nextProps.userBeingShown.lastname,
+            img_url: nextProps.userBeingShown.img_url,
+            description: nextProps.userBeingShown.description
 
+        }})
+    }
+
+    state = {
+        userBeingShown: {
+            username: "",
+            firstname: "",
+            lastname: "",
+            img_url: "",
+            description: ""
+
+        }
+    }
+    
     render() {
+        console.log("our user",this.props.userBeingShown)
         return (
             <Container>
-                User Profile Route {/* <img
-                    src={this.props.userBeingShown.img_url}
-                    alt={this.props.userBeingShown.username}/>
-                <h1>{this.props.userBeingShown.firstname} {this.props.userBeingShown.lastname}</h1>
-                {this
+                User Profile Route 
+                
+                <img src={this.state.userBeingShown.img_url} alt={this.state.userBeingShown.username}/>
+                <h1>{this.state.userBeingShown.firstname} {this.state.userBeingShown.lastname}</h1>
+
+                {/* {this
                     .props
                     .posts
                     .map(post => (
@@ -35,7 +53,7 @@ class UserProfile extends Component {
                             <h4>{post.title}</h4>
                             <h4>{post.content}</h4>
                         </div>
-                    ))} */}
+                    ))}  */}
             </Container>
         );
     }
