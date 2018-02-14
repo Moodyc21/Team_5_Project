@@ -7,7 +7,8 @@ class EditPostForm extends Component {
   state = {
     postBeingEdited: {
       id: this.props.post._id,
-      title: this.props.post.title
+      title: this.props.post.title,
+      content: this.props.post.content
     }
   }
 
@@ -37,7 +38,7 @@ class EditPostForm extends Component {
           onChange={this.handleChange}
           value={this.state.postBeingEdited.title}
           placeholder="Title"/>
-          <input
+        <textarea
           type="text"
           name="content"
           onChange={this.handleChange}

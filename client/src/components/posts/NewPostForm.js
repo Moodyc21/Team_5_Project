@@ -47,7 +47,7 @@ class PostForm extends Component {
           value={this.state.newPostForm.title}
           placeholder="Title"/>
         <br/>
-        <input
+        <textarea
           className="newPost"
           type="text"
           name="content"
