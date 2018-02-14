@@ -42,7 +42,7 @@ class CityPage extends Component {
                     </DeleteButton>
                   </CityTitle>
 
-                  <div>
+                  <div onClick={() => this.props.push(`/cities/${city.id}/show`)}>
                     <img src={city.img_url} alt={city.name}/>
                   </div>
 

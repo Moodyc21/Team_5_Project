@@ -11,7 +11,10 @@ class SplashPage extends Component {
         <h1>City Point</h1>
 
         <button type='button' onClick={() => this.props.push('/users')}>
-          Enter
+          Users
+        </button>
+        <button type='button' onClick={() => this.props.push('/cities')}>
+          Cities
         </button>
       </Container>
 
