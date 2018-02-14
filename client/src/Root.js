@@ -30,12 +30,12 @@ const Root = () => (
         <Route exact path="/cities" component={CityPage}/>
         <Route exact path="/cities/new" component={NewCityForm}/>
         <Route exact path="/cities/:cityId/edit" component={EditCityForm}/>
-        <Route exact path="/cities/:cityId/" component={CityProfile}/>
+        <Route exact path="/cities/:cityId/show" component={CityProfile}/>
 
         <Route exact path="/users" component={UserPage}/>
         <Route exact path="/users/new" component={NewUserForm}/>
         <Route exact path="/users/:userId/edit" component={EditUserForm}/>
-        <Route exact path="/users/:userId/" component={UserProfile}/>
+        <Route exact path="/users/:userId/show" component={UserProfile}/>
 
       </div>
     </ConnectedRouter>

@@ -44,21 +44,20 @@ class CityPage extends Component {
                         </DeleteButton>
                     </CityTitle>
 
-                    <div>
-                      <img src={city.img_url} alt={city.name}/>
-                    </div>
+                  <div>
+                    <img src={city.img_url} alt={city.name}/>
+                  </div>
 
-                    <div>
-                      <button onClick={() => this.props.push(`/cities/${city.id}/edit`)}>
-                        Edit {city.name}
-                      </button>
+                  <div>
+                    <button onClick={() => this.props.push(`/cities/${city.id}/edit`)}>
+                      Edit {city.name}
+                    </button>
 
-                      <button onClick={() => this.props.deleteCityFromDatabase(city)}>
-                        Delete {city.name}
-                      </button>
-                    </div>
-                  </CityBox>
-                </div>
+                    <button onClick={() => this.props.deleteCityFromDatabase(city)}>
+                      Delete {city.name}
+                    </button>
+                  </div>
+                </CityBox>
               )
             })}
 
