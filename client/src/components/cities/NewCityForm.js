@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 // import styled from 'styled-components'
 import {sendNewCityToDatabase} from '../../actions/thunk.actions.js'
+import Navbar from '../navbar/Navbar'
 
 class NewCityForm extends Component {
   state = {
@@ -39,7 +40,11 @@ class NewCityForm extends Component {
 
   render() {
     return (
+      
       <div>
+        <div>
+        <Navbar />
+        </div>
         <input
           className="newCity"
           type="text"

@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import styled from 'styled-components'
+import Navbar from '../navbar/Navbar'
 
 
 import {sendNewUserToDatabase} from '../../actions/thunk.actions.js'
@@ -43,6 +44,9 @@ class UserForm extends Component {
   render() {
     return (
       <Container>
+        <div>
+          <Navbar />
+        </div>
         
           <div> Username:</div>
         <input

@@ -1,34 +1,51 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+<<<<<<< HEAD
 import { connect } from 'react-redux'
 import { getCityRoute } from '../../actions/thunk.actions.js'
 
 import { push } from 'react-router-redux'
 // import axios from 'axios'
 
+=======
+import {connect} from 'react-redux'
+import {getCityRoute, getPostsRoute} from '../../actions/thunk.actions.js'
+import {push} from 'react-router-redux'
+import Navbar from '../navbar/Navbar'
+>>>>>>> bf6570c7fdb1697fd7b8bb05d57513ca881cb532
 class CityProfile extends Component {
 
   componentWillMount() {
+    const cityId = this.props.match.params.cityId;
     this
       .props
       .getCityRoute()
+      .then(() => {
+        (this.props.getPostsRoute(cityId))
+      })
   }
 
   render() {
     const cityId = this.props.match.params.cityId;
     return (
+      
       <Container>
+        <div>
+        <Navbar />
+        </div>
         {this
           .props
           .cities
           .map((city, i) => {
             if (city.id == cityId) {
               return (
+<<<<<<< HEAD
               <div>
+=======
+>>>>>>> bf6570c7fdb1697fd7b8bb05d57513ca881cb532
                 <div key={i}>
                   <h2>
                     {city.name}</h2>
-
                   <div>
                     Name:{city.name}
                   </div>
@@ -40,8 +57,9 @@ class CityProfile extends Component {
                     <img src={city.img_url} alt={city.name} />
                   </div>
                   <div>
-                    {city.post}
+                    <h3>Posts</h3>
                   </div>
+<<<<<<< HEAD
                 </div>
                 <div>
                   Location:{city.location}
@@ -64,16 +82,51 @@ class CityProfile extends Component {
     }
 
     })}
+=======
+                  <br/>
+                  <div>
+                    <button onClick={() => this.props.push(`/cities/${city.id}/edit`)}>
+                      Edit {city.name}
+                    </button>
+                  </div>
+                </div>
+              )
+            }
+          })}
+        {this
+          .props
+          .posts
+          .map((post, i) => {
+            return (
+              <div key={i}>
+                <div onClick={() => this.props.push(`/cities/${cityId}/posts/${post.id}`)}>
+                  {post.title}
+                </div>
+                <div>
+                  {post.content}
+                </div>
+              </div>
+            )
+          })}
+>>>>>>> bf6570c7fdb1697fd7b8bb05d57513ca881cb532
       </Container>
+      
     );
   }
 }
 
 const mapStateToProps = (state) => {
+<<<<<<< HEAD
   return { cities: state.cities }
 }
 
 export default connect(mapStateToProps, { getCityRoute, push })(CityProfile);
+=======
+  return {cities: state.cities, posts: state.posts}
+}
+
+export default connect(mapStateToProps, {getCityRoute, getPostsRoute, push})(CityProfile);
+>>>>>>> bf6570c7fdb1697fd7b8bb05d57513ca881cb532
 
 // /////////////////////////////////////////////////////////////////////////////
 // / / STYLED-COMPONENTS

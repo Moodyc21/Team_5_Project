@@ -4,9 +4,11 @@ import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import styled from 'styled-components'
 
+
 class SplashPage extends Component {
   render() {
     return (
+      
       <Container>
         <h1>City Point</h1>
         <div>

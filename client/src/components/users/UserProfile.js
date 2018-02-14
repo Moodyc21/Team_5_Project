@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import styled from 'styled-components'
 import {connect} from 'react-redux'
 import {getOneUserRoute} from '../../actions/thunk.actions.js'
+import Navbar from '../navbar/Navbar.js'
 
 
 class UserProfile extends Component {
@@ -39,7 +40,11 @@ class UserProfile extends Component {
     render() {
         console.log("our user",this.props.userBeingShown)
         return (
+            
             <Container>
+                <div>
+                <Navbar />
+                </div>
                 User Profile Route 
                 
                 <img src={this.state.userBeingShown.img_url} alt={this.state.userBeingShown.username}/>
@@ -55,6 +60,7 @@ class UserProfile extends Component {
                         </div>
                     ))}  */}
             </Container>
+            
         );
     }
 }
