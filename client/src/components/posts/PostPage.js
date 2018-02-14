@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import {getPostsRoute, deletePostFromDatabase} from '../../actions/thunk.actions.js'
 import EditPostForm from './EditPostForm.js'
-import Navbar from './navbar/Navbar'
+import Navbar from '../navbar/Navbar'
 
 class PostPage extends Component {
   componentWillMount() {
@@ -16,7 +16,7 @@ class PostPage extends Component {
     return (
       <div>
         <div>
-          <Navbar />
+          <Navbar/>
         </div>
         <div>
           PostPage.js Component
