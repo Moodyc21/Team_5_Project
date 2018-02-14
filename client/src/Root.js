@@ -16,6 +16,7 @@ import CityPage from './components/cities/CityPage.js'
 import NewCityForm from './components/cities/NewCityForm.js'
 import EditCityForm from './components/cities/EditCityForm.js';
 import CityProfile from './components/cities/CityProfile.js';
+import CityPosts from './components/posts/CityPosts.js';
 
 const history = createHistory()
 const store = configureStore(history)
@@ -31,6 +32,7 @@ const Root = () => (
         <Route exact path="/cities/new" component={NewCityForm}/>
         <Route exact path="/cities/:cityId/edit" component={EditCityForm}/>
         <Route exact path="/cities/:cityId/show" component={CityProfile}/>
+        <Route exact path="/cities/:cityId/posts" component={CityPosts}/>
 
         <Route exact path="/users" component={UserPage}/>
         <Route exact path="/users/new" component={NewUserForm}/>
