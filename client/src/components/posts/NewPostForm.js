@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 
 import {sendNewPostToDatabase} from '../../actions/thunk.actions.js'
+import Navbar from '../navbar/Navbar'
 
 class PostForm extends Component {
   state = {
@@ -39,6 +40,9 @@ class PostForm extends Component {
   render() {
     return (
       <div>
+        <div>
+          <Navbar />
+        </div>
         <input
           className="newPost"
           type="text"
