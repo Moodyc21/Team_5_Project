@@ -146,8 +146,8 @@ const DeleteButton = styled.div`
     flex-wrap:wrap;
     justify-content: center;
     align-items: center;
-    width: 5vh;
-    height: 5vh;
+    width: 3.5vh;
+    height: 3.5vh;
     font-size: 3vh;
     border: 1px solid black;
     margin: 20px;

@@ -66,9 +66,11 @@ class EditUserForm extends Component {
     return (
       <Container>
         <div>
-          User ID = {userId}
+          {/* User ID = {userId} */}
+         <h2> {this.state.userBeingEdited.username}</h2>
         </div>
         <div>
+        <div> Username:</div>
           <input
             className="editUser"
             type="text"
@@ -77,6 +79,7 @@ class EditUserForm extends Component {
             value={this.state.userBeingEdited.username}/>
         </div>
         <div>
+        <div> Firstname:</div>
           <input
             className="editUser"
             type="text"
@@ -85,6 +88,7 @@ class EditUserForm extends Component {
             value={this.state.userBeingEdited.firstname}/>
         </div>
         <div>
+        <div> Lastname:</div>
           <input
             className="editUser"
             type="text"
@@ -93,6 +97,7 @@ class EditUserForm extends Component {
             value={this.state.userBeingEdited.lastname}/>
         </div>
         <div>
+        <div> Image-URL:</div>
           <input
             className="editUser"
             type="text"
@@ -101,6 +106,7 @@ class EditUserForm extends Component {
             value={this.state.userBeingEdited.img_url}/>
         </div>
         <div>
+        <div> Description:</div>
           <input
             className="editUser"
             type="text"
@@ -108,6 +114,7 @@ class EditUserForm extends Component {
             onChange={this.handleChange}
             value={this.state.userBeingEdited.description}/>
         </div>
+        <br/>
         <button onClick={this.handleEditUser}>
           Edit
         </button>

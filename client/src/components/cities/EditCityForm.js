@@ -34,11 +34,14 @@ class EditCityForm extends Component {
   render() {
     return (
       <Container>
+        <div> Name:</div>
         <input
           type="text"
           name="name"
           onChange={this.handleChange}
-          value={this.state.cityBeingEdited.name}/>
+          value={this.state.cityBeingEdited.name}/> 
+          <br/>
+          <div> Location:</div>
           <input
           type="text"
           name="location"

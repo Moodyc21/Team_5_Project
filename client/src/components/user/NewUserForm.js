@@ -43,6 +43,8 @@ class UserForm extends Component {
   render() {
     return (
       <Container>
+        
+          <div> Username:</div>
         <input
           className="newUser"
           type="text"
@@ -51,6 +53,7 @@ class UserForm extends Component {
           value={this.state.newUserForm.username}
           placeholder="Username"/>
         <br/>
+        <div> Firstname:</div>
         <input
           className="newUser"
           type="text"
@@ -59,6 +62,7 @@ class UserForm extends Component {
           value={this.state.newUserForm.firstname}
           placeholder="First Name"/>
         <br/>
+        <div> Lastname:</div>
         <input
           className="newUser"
           type="text"
@@ -67,6 +71,7 @@ class UserForm extends Component {
           value={this.state.newUserForm.lastname}
           placeholder="Last Name"/>
         <br/>
+        <div> Image-URL:</div>
         <input
           className="newUser"
           type="text"
@@ -74,9 +79,11 @@ class UserForm extends Component {
           onChange={this.handleNewUserChange}
           value={this.state.newUserForm.img_url}
           placeholder="Profile picture URL"/>
+           <br/>
         <button onClick={this.handleAddNewUser}>
           Add User
         </button>
+       
       </Container>
     )
   }
