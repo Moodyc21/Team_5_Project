@@ -25,9 +25,6 @@ class CityPage extends Component {
           Home
         </button>
         <br/>
-        <div>
-          <NewCityForm/>
-        </div>
 
         <Container>
 
