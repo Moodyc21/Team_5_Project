@@ -10,15 +10,12 @@ class UserPage extends Component {
       .props
       .getUserRoute()
   }
-  componentWillReceiveProps(nextProps) {
-    console.log("In another method")
-    console.log('', nextProps)
-  }
+
   render() {
     return (
       <Body>
         <Header>
-          <h2>Welcome to User Page</h2>
+          <div>Welcome to User Page</div>
         </Header>
         <div>
           <button onClick={() => this.props.push(`/users/new`)}>
