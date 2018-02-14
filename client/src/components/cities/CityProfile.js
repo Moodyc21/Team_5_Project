@@ -24,34 +24,42 @@ class CityProfile extends Component {
               return (
 
                 <div key={i}>
-                <h2>
-                  {city.name}</h2>
+                  <h2>
+                    {city.name}</h2>
 
-                <div>
-                  Name:{city.name}
-                </div>
-                <div>
-                  Location:{city.location}
-                </div>
-                <br/>
-                <div>
-                  <img src={city.img_url} alt={city.name}/>
-                </div>
-                <div onClick={() => this.props.push(`/cities/${city.id}/posts`)}>
-                  <h3>Posts</h3>
-                </div>
+                  <div>
+                    Name:{city.name}
+                  </div>
+                  <div>
+                    Location:{city.location}
+                  </div>
+                  <br/>
+                  <div>
+                    <img src={city.img_url} alt={city.name}/>
+                  </div>
+                  <div onClick={() => this.props.push(`/cities/${city.id}/posts`)}>
+                    <h3>Posts</h3>
+                  </div>
 
-              </div> < div > Location : {
-                city.location
-              } < /div>
-                <br/ > <div>
-                <img src={city.img_url} alt={city.name}/>
-              </div> < div > <button onClick={() => this.props.push(`/cities/${city.id}/edit`)}>
-                Edit {city.name}
-              </button> < /div>
-                <div>
-                  {city.post}
-                </div > </div>)
+                  <div>
+                    Location : {city.location}
+                  </div>
+
+                  <br/>
+
+                  <div>
+                    <img src={city.img_url} alt={city.name}/>
+                  </div>
+                  <div>
+                    <button onClick={() => this.props.push(`/cities/${city.id}/edit`)}>
+                      Edit {city.name}
+                    </button>
+                  </div>
+                  <div>
+                    {city.post}
+                  </div>
+                </div>
+              )
             }
 
           })}
