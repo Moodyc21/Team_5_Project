@@ -38,9 +38,6 @@ class CityProfile extends Component {
                   <div>
                     <h3>Posts</h3>
                   </div>
-                  <div>
-                    Location : {city.location}
-                  </div>
                   <br/>
                   <div>
                     <button onClick={() => this.props.push(`/cities/${city.id}/edit`)}>
