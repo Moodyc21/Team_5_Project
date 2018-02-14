@@ -18,7 +18,6 @@ class CityPage extends Component {
         <div>
           <h2>CityPage</h2>
         </div>
-
         <div>
           <NewCityForm />
         </div>

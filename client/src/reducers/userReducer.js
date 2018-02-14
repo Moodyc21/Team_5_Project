@@ -25,13 +25,13 @@ function userReducer(state = [], action) {
   }
 }
 
-function updateObjectInArray(array, action) {
-  return array.map((users) => {
-    if (users.id !== action.editedUserData.id) {
-      return users
+function updateObjectInArray(state, action) {
+  return state.map((user) => {
+    if (user.id !== action.editedUserData.id) {
+      return user
     }
     return {
-      ...users,
+      ...user,
       ...action.editedUserData
     }
   })

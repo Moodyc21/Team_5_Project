@@ -53,9 +53,9 @@ class EditUserForm extends Component {
     this
       .props
       .editUserInDatabase(this.state.userBeingEdited)
-    this
-      .props
-      .push(`/users`)
+      .then((response) => {
+        (this.props.push(`/users`))
+      })
   }
 
   render() {

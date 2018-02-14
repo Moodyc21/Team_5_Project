@@ -2,12 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import styled from 'styled-components'
-<<<<<<< HEAD
-import { getUserRoute, deleteUserFromDatabase } from '../../actions/thunk.actions.js'
-
-=======
 import {getUserRoute, deleteUserFromDatabase} from '../../actions/thunk.actions.js'
->>>>>>> styled
 
 class UserPage extends Component {
   componentWillMount() {
@@ -15,11 +10,12 @@ class UserPage extends Component {
       .props
       .getUserRoute()
   }
+
   render() {
     return (
       <Body>
         <Header>
-          <h2>Welcome to User Page</h2>
+          <div>Welcome to User Page</div>
         </Header>
         <div>
           <button onClick={() => this.props.push(`/users/new`)}>
