@@ -35,7 +35,7 @@ class CityProfile extends Component {
                   <div>
                     <img src={city.img_url} alt={city.name}/>
                   </div>
-                  <div onClick={() => this.props.push(`/cities/${city.id}/posts`)}>
+                  <div>
                     <h3>Posts</h3>
                   </div>
                   <div>
@@ -43,15 +43,9 @@ class CityProfile extends Component {
                   </div>
                   <br/>
                   <div>
-                    <img src={city.img_url} alt={city.name}/>
-                  </div>
-                  <div>
                     <button onClick={() => this.props.push(`/cities/${city.id}/edit`)}>
                       Edit {city.name}
                     </button>
-                  </div>
-                  <div>
-                    {city.post}
                   </div>
                 </div>
               )
