@@ -55,9 +55,6 @@ class EditUserForm extends Component {
   }
 
   render() {
-
-    const userId = this.props.match.params.userId
-
     return (
       <Container>
         <div>
