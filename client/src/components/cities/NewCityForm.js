@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
+import styled from 'styled-components'
 import {sendNewCityToDatabase} from '../../actions/thunk.actions.js'
 
 class NewCityForm extends Component {

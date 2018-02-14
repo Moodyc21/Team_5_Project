@@ -33,7 +33,7 @@ class UserProfile extends Component {
 
     render() {
         return (
-            <Body>
+            <Container>
                 <img src={this.state.user.img_url} alt={this.state.user.username}/>
                 <h1>{this.state.user.firstname} {this.state.user.lastname}</h1>
                 {this
@@ -45,20 +45,19 @@ class UserProfile extends Component {
                             <h4>{post.content}</h4>
                         </div>
                     ))}
-            </Body>
+            </Container>
         );
     }
 }
 
 export default UserProfile;
 
-
 /////////////////////////////////////////////////////////////////////////////////
 // STYLED-COMPONENTS
 /////////////////////////////////////////////////////////////////////////////////
 
 
-const Body = styled.div `
+const Container = styled.div `
     display: flex;
     flex-direction: column;
     justify-content: center;

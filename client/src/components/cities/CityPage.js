@@ -162,15 +162,14 @@ const CityTitle = styled.div`
     flex-direction: row;
     width: 70vh;
     justify-content: flex-end;
-    flex-wrap:wrap;
     align-items: center;
     margin:5px;
     padding:5px;`
 
 
 const CityBox = styled.div`
-    width: 50vh;
-    height: 50vh;
+    width: 40vh;
+    height: 40vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -184,7 +183,7 @@ const CityBox = styled.div`
     font-size: 2.25vh;
     box-shadow: 3px 3px 0px #3f3f3f;
     img {
-        width: 45vh;
+        width: 38vh;
     height:25vh;
     border: 1px solid darkgray;
     box-shadow: 1.5px 1.5px 0px #7e7e7e;
