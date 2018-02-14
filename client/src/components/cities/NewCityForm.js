@@ -69,3 +69,4 @@ class NewCityForm extends Component {
 }
 
 export default connect(null, {sendNewCityToDatabase, push})(NewCityForm)
+
