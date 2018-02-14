@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import styled from 'styled-components'
 import {editCityInDatabase, getOneCityRoute} from '../../actions/thunk.actions.js'
+import Navbar from '../navbar/Navbar'
 
 class EditCityForm extends Component {
 
@@ -55,6 +56,9 @@ class EditCityForm extends Component {
   render() {
     return (
       <Container>
+        <div>
+          <Navbar />
+          </div>
         <div>
           Name:</div>
         <input

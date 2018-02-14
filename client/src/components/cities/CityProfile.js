@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import styled from 'styled-components'
 import {connect} from 'react-redux'
 import {getCityRoute} from '../../actions/thunk.actions.js'
+import Navbar from '../navbar/Navbar'
 
 // import {push} from 'react-router-redux' import axios from 'axios'
 
@@ -16,7 +17,11 @@ class CityProfile extends Component {
   render() {
     const cityId = this.props.match.params.cityId;
     return (
+      
       <Container>
+        <div>
+        <Navbar />
+        </div>
         {this
           .props
           .cities
@@ -47,6 +52,7 @@ class CityProfile extends Component {
 
           })}
       </Container>
+      
     );
   }
 }
