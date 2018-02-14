@@ -1,18 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-<<<<<<< HEAD
-import { connect } from 'react-redux'
-import { getCityRoute } from '../../actions/thunk.actions.js'
-
-import { push } from 'react-router-redux'
-// import axios from 'axios'
-
-=======
 import {connect} from 'react-redux'
 import {getCityRoute, getPostsRoute} from '../../actions/thunk.actions.js'
 import {push} from 'react-router-redux'
 import Navbar from '../navbar/Navbar'
->>>>>>> bf6570c7fdb1697fd7b8bb05d57513ca881cb532
 class CityProfile extends Component {
 
   componentWillMount() {
@@ -39,10 +30,7 @@ class CityProfile extends Component {
           .map((city, i) => {
             if (city.id == cityId) {
               return (
-<<<<<<< HEAD
               <div>
-=======
->>>>>>> bf6570c7fdb1697fd7b8bb05d57513ca881cb532
                 <div key={i}>
                   <h2>
                     {city.name}</h2>
@@ -59,30 +47,6 @@ class CityProfile extends Component {
                   <div>
                     <h3>Posts</h3>
                   </div>
-<<<<<<< HEAD
-                </div>
-                <div>
-                  Location:{city.location}
-                </div>
-                <br />
-                <div>
-                  <img src={city.img_url} alt={city.name} />
-                </div>
-                <div>
-                  <button onClick={() => this.props.push(`/cities/${city.id}/edit`)}>
-                    Edit {city.name}
-                  </button>
-
-                </div>
-                <div>
-                  {city.post}
-                </div>
-              </div>
-      )
-    }
-
-    })}
-=======
                   <br/>
                   <div>
                     <button onClick={() => this.props.push(`/cities/${city.id}/edit`)}>
@@ -108,7 +72,6 @@ class CityProfile extends Component {
               </div>
             )
           })}
->>>>>>> bf6570c7fdb1697fd7b8bb05d57513ca881cb532
       </Container>
       
     );
@@ -116,17 +79,10 @@ class CityProfile extends Component {
 }
 
 const mapStateToProps = (state) => {
-<<<<<<< HEAD
-  return { cities: state.cities }
-}
-
-export default connect(mapStateToProps, { getCityRoute, push })(CityProfile);
-=======
   return {cities: state.cities, posts: state.posts}
 }
 
 export default connect(mapStateToProps, {getCityRoute, getPostsRoute, push})(CityProfile);
->>>>>>> bf6570c7fdb1697fd7b8bb05d57513ca881cb532
 
 // /////////////////////////////////////////////////////////////////////////////
 // / / STYLED-COMPONENTS
