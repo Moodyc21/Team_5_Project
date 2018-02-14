@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {editPostInDatabase} from '../../actions/thunk.actions.js'
+import Navbar from '../navbar/Navbar'
 
 class EditPostForm extends Component {
 
@@ -32,6 +33,9 @@ class EditPostForm extends Component {
   render() {
     return (
       <div>
+        <div>
+          <Navbar />
+        </div>
         <input
           type="text"
           name="title"

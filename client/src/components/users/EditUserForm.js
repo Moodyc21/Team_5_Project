@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import styled from 'styled-components'
 import {editUserInDatabase, getOneUserRoute} from '../../actions/thunk.actions.js'
+import Navbar from '../navbar/Navbar'
 
 class EditUserForm extends Component {
 
@@ -57,6 +58,9 @@ class EditUserForm extends Component {
   render() {
     return (
       <Container>
+        <div>
+          <Navbar />
+          </div>
         <div>
           <h2>
             {this.state.userBeingEdited.username}</h2>

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {connect} from 'react-redux'
 import {getCityRoute, getPostsRoute} from '../../actions/thunk.actions.js'
 import {push} from 'react-router-redux'
-
+import Navbar from '../navbar/Navbar'
 class CityProfile extends Component {
 
   componentWillMount() {
@@ -19,7 +19,11 @@ class CityProfile extends Component {
   render() {
     const cityId = this.props.match.params.cityId;
     return (
+      
       <Container>
+        <div>
+        <Navbar />
+        </div>
         {this
           .props
           .cities
@@ -68,6 +72,7 @@ class CityProfile extends Component {
             )
           })}
       </Container>
+      
     );
   }
 }
