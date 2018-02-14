@@ -22,7 +22,7 @@ class CityProfile extends Component {
             return (
 
               <div key={i}>
-               <h2> {city.name} Page</h2>
+               <h2> {city.name}</h2>
 
                 <div>
                   Name:{city.name}
@@ -30,11 +30,12 @@ class CityProfile extends Component {
                 <div>
                   Location:{city.location}
                 </div>
+                <br/>
                 <div>
-                  Image:<img src={city.img_url} alt={city.name}/>
+                  <img src={city.img_url} alt={city.name}/>
                 </div>
                 <div>
-                  Name:{city.post}
+                 {city.post}
                 </div>
               </div>
             )
@@ -70,9 +71,16 @@ const Container = styled.div`
     top: 0;
     left: 0;
     background-size: cover;
+    
     background-repeat:no-repeat;
     font-family: 'Montserrat', sans-serif;
     /* background-color: #212121; */
+    img{
+      width: 60vh;
+      height: 45vh;
+      border: 2px solid white;
+      box-shadow:5px 5px 5px rgba(255,255,255,0.45);
+    }
     button{
       border:1px solid black;
       background:none;
