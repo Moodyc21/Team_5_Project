@@ -2,14 +2,14 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import {} from '../../actions/thunk.actions.js'
-
+import axios from 'axios'
 
 class UserProfile extends Component {
     constructor() {
         super();
         this.state = {
             user: {},
-            posts: [],
+            posts: []
         };
     }
 
@@ -18,16 +18,12 @@ class UserProfile extends Component {
         this.fetchUserAndPostData(userId)
     }
 
-    fetchUserAndPostData = async (userId) => {
+    fetchUserAndPostData = async(userId) => {
         try {
             const userResponse = await axios.get(`/api/users/${userId}`)
             const postsResponse = await axios.get(`/api/users/${userId}/posts`)
-            await this.setState({
-                user: userResponse.data,
-                posts: postsResponse.data
-            });
-        }
-        catch (error) {
+            await this.setState({user: userResponse.data, posts: postsResponse.data});
+        } catch (error) {
             console.log(error)
             await this.setState({error: error.message})
         }
@@ -36,18 +32,20 @@ class UserProfile extends Component {
     render() {
         return (
             <div>
-                <img src={this.state.user.img_url} alt="{this.state.user.username}"/>
+                <img src={this.state.user.img_url} alt={this.state.user.username}/>
                 <h1>{this.state.user.firstname} {this.state.user.lastname}</h1>
-                {this.state.posts.map(post => (
-                    <div key={post.id}>
-                        <h4>{post.title}</h4>
-                        <h4>{post.content}</h4>
-                    </div>
-                ))}
+                {this
+                    .state
+                    .posts
+                    .map(post => (
+                        <div key={post.id}>
+                            <h4>{post.title}</h4>
+                            <h4>{post.content}</h4>
+                        </div>
+                    ))}
             </div>
         );
     }
 }
 
 export default UserProfile;
-

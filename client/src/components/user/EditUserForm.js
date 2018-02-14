@@ -5,8 +5,8 @@ import {editUserInDatabase, getOneUserRoute} from '../../actions/thunk.actions.j
 
 class EditUserForm extends Component {
 
-  async componentWillMount() {
-    const something = await this
+  componentWillMount() {
+    this
       .props
       .getOneUserRoute(this.props.match.params.userId)
 
@@ -22,7 +22,8 @@ class EditUserForm extends Component {
         username: nextProps.userBeingEdited.username,
         firstname: nextProps.userBeingEdited.firstname,
         lastname: nextProps.userBeingEdited.lastname,
-        img_url: nextProps.userBeingEdited.img_url
+        img_url: nextProps.userBeingEdited.img_url,
+        description: nextProps.userBeingEdited.description
       }
     })
     // this.setState(userBeingEdited)
@@ -33,7 +34,8 @@ class EditUserForm extends Component {
       username: "",
       firstname: "",
       lastname: "",
-      img_url: ""
+      img_url: "",
+      description: ""
     }
   }
 
@@ -65,13 +67,46 @@ class EditUserForm extends Component {
         <div>
           User ID = {userId}
         </div>
-        <input
-          className="editUser"
-          type="text"
-          name="username"
-          onChange={this.handleChange}
-          value={this.state.userBeingEdited.username}/>
-          <br/>
+        <div>
+          <input
+            className="editUser"
+            type="text"
+            name="username"
+            onChange={this.handleChange}
+            value={this.state.userBeingEdited.username}/>
+        </div>
+        <div>
+          <input
+            className="editUser"
+            type="text"
+            name="firstname"
+            onChange={this.handleChange}
+            value={this.state.userBeingEdited.firstname}/>
+        </div>
+        <div>
+          <input
+            className="editUser"
+            type="text"
+            name="lastname"
+            onChange={this.handleChange}
+            value={this.state.userBeingEdited.lastname}/>
+        </div>
+        <div>
+          <input
+            className="editUser"
+            type="text"
+            name="img_url"
+            onChange={this.handleChange}
+            value={this.state.userBeingEdited.img_url}/>
+        </div>
+        <div>
+          <input
+            className="editUser"
+            type="text"
+            name="description"
+            onChange={this.handleChange}
+            value={this.state.userBeingEdited.description}/>
+        </div>
         <button onClick={this.handleEditUser}>
           Edit
         </button>

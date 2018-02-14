@@ -10,6 +10,7 @@ import SplashPage from './components/SplashPage.js'
 import UserPage from './components/user/UserPage.js'
 import NewUserForm from './components/user/NewUserForm.js'
 import EditUserForm from './components/user/EditUserForm.js';
+import UserProfile from './components/user/UserProfile.js';
 
 import CityPage from './components/cities/CityPage.js'
 import NewCityForm from './components/cities/NewCityForm.js'
@@ -32,6 +33,7 @@ const Root = () => (
         <Route exact path="/users" component={UserPage}/>
         <Route exact path="/users/new" component={NewUserForm}/>
         <Route exact path="/users/:userId/edit" component={EditUserForm}/>
+        <Route exact path="/users/:userId/show" component={UserProfile}/>
 
       </div>
     </ConnectedRouter>

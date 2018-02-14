@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {push} from 'react-router-redux'
 import styled from 'styled-components'
-import { getUserRoute, deleteUserFromDatabase } from '../../actions/thunk.actions.js'
-import EditUserForm from './EditUserForm.js'
+import {getUserRoute, deleteUserFromDatabase} from '../../actions/thunk.actions.js'
 
 class UserPage extends Component {
   componentWillMount() {
@@ -15,7 +14,7 @@ class UserPage extends Component {
     return (
       <Body>
         <Header>
-          <h2>Wecome to User Page</h2>
+          <h2>Welcome to User Page</h2>
         </Header>
         <div>
           <button onClick={() => this.props.push(`/users/new`)}>
@@ -33,44 +32,41 @@ class UserPage extends Component {
             .map((user, i) => {
               return (
                 <UserBox key={i}>
-                  <div>
-                    <img width="200" src={user.img_url} alt={user.username} />
-                    <br />
-                    
-                    {user.username}
-                   </div>
+                  <div onClick={() => this.props.push(`/users/${user.id}/show`)}>
+                    <img width="200" src={user.img_url} alt={user.username}/>
+                    <br/> {user.username}
+                  </div>
 
                   <div>
-                    <button onClick={this.props.handleEditUser}>
+                    <button onClick={() => this.props.push(`/users/${user.id}/edit`)}>
                       Edit
-                  </button>
-                  
-                 
+                    </button>
+
                     <button onClick={() => this.props.deleteUserFromDatabase(user)}>
                       Delete
-                  </button>
+                    </button>
                   </div>
                 </UserBox>
               )
             })}
 
         </Container>
-        
 
       </Body>
     )
   }
 }
 const mapStateToProps = (state) => {
-  return { users: state.users }
+  return {users: state.users}
 }
-export default connect(mapStateToProps, { push, getUserRoute, deleteUserFromDatabase })(UserPage)
+export default connect(mapStateToProps, {push, getUserRoute, deleteUserFromDatabase})(UserPage)
 
-///////////////////////////////////////////////////////////////////////////////////
-//STYLED-COMPONENTS
-///////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
+// / /// STYLED-COMPONENTS
+// /////////////////////////////////////////////////////////////////////////////
+// / ///
 
-const Body = styled.div`
+const Body = styled.div `
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -102,10 +98,10 @@ const Body = styled.div`
       &:hover{
         color: white;
       background:rgba(0,0,0,0.15);
-      };
+      }};
 `
 
-const Container = styled.div`
+const Container = styled.div `
     display: flex;
     flex-direction: row;
     flex-wrap:wrap;
@@ -126,7 +122,7 @@ const Container = styled.div`
     }
 `;
 
-const Header = styled.h1`
+const Header = styled.h1 `
     margin: 20 auto;
     color: white;
     font-size: 3vh;
@@ -134,15 +130,15 @@ const Header = styled.h1`
     /* border-bottom: thin solid white; */
 `;
 
-
-const Users = styled.div`
+const Users = styled.div `
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap:wrap;
-   `
-const UserBox = styled.div`
+    `
+
+const UserBox = styled.div `
     width: 27.5vh;
     height: 27.5vh;
     display: flex;
