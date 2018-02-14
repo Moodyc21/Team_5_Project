@@ -5,6 +5,9 @@ function cityReducer(state = [], action) {
     case 'GET_CITIES':
       return [...action.citiesFromDatabase]
 
+    case 'GET_ONE_CITY':
+      return [action.cityFromDatabase]
+
     case 'CREATE_CITY':
       return [
         ...state,

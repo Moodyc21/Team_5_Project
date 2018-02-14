@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
-import styled from 'styled-components'
+// import styled from 'styled-components'
 import {sendNewCityToDatabase} from '../../actions/thunk.actions.js'
 
 class NewCityForm extends Component {
@@ -25,7 +25,7 @@ class NewCityForm extends Component {
     this
       .props
       .sendNewCityToDatabase(this.state.newCityForm)
-      this
+    this
       .props
       .push(`/cities`)
     this.setState({
@@ -47,16 +47,16 @@ class NewCityForm extends Component {
           onChange={this.handleNewCityChange}
           value={this.state.newCityForm.name}
           placeholder="Name"/>
-          <br/>
-          <input
+        <br/>
+        <input
           className="newCity"
           type="text"
           name="location"
           onChange={this.handleNewCityChange}
           value={this.state.newCityForm.location}
           placeholder="Location"/>
-          <br/>
-          <input
+        <br/>
+        <input
           className="newCity"
           type="text"
           name="img_url"
@@ -70,4 +70,3 @@ class NewCityForm extends Component {
 }
 
 export default connect(null, {sendNewCityToDatabase, push})(NewCityForm)
-

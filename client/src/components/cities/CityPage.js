@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
-import { getCityRoute, deleteCityFromDatabase } from '../../actions/thunk.actions.js'
-import EditCityForm from './EditCityForm.js'
-import NewCityForm from './NewCityForm.js'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {push} from 'react-router-redux'
+import {getCityRoute, deleteCityFromDatabase} from '../../actions/thunk.actions.js'
 import styled from 'styled-components'
 
 class CityPage extends Component {
@@ -19,13 +17,14 @@ class CityPage extends Component {
           <h2>CityPage</h2>
         </div>
         <div>
-          <NewCityForm />
+          <button onClick={() => this.props.push(`/cities/new`)}>
+            Add a new City
+          </button>
         </div>
         <button onClick={() => this.props.push('/')}>
           Home
         </button>
         <Container>
-
 
           {this
             .props
@@ -38,21 +37,26 @@ class CityPage extends Component {
                     <CityTitle>
                       <div>
                         {city.name}
-                        <br />
-                        {city.location}
-                        </div>
-                        <DeleteButton onClick={() => this.props.deleteCityFromDatabase(city)}>
-                          X
-                  </DeleteButton>
+                        <br/> {city.location}
+                      </div>
+                      <DeleteButton onClick={() => this.props.deleteCityFromDatabase(city)}>
+                        X
+                      </DeleteButton>
                     </CityTitle>
+
                     <div>
-                      <img src={city.img_url} alt={city.name} />
+                      <img src={city.img_url} alt={city.name}/>
                     </div>
 
                     <div>
-                      {/* <EditCityForm city={city} /> */}
-                    </div>
+                      <button onClick={() => this.props.push(`/cities/${city.id}/edit`)}>
+                        Edit {city.name}
+                      </button>
 
+                      <button onClick={() => this.props.deleteCityFromDatabase(city)}>
+                        Delete {city.name}
+                      </button>
+                    </div>
                   </CityBox>
                 </div>
               )
@@ -64,16 +68,16 @@ class CityPage extends Component {
   }
 }
 const mapStateToProps = (state) => {
-  return { cities: state.cities }
+  return {cities: state.cities}
 }
-export default connect(mapStateToProps, { push, getCityRoute, deleteCityFromDatabase })(CityPage)
+export default connect(mapStateToProps, {push, getCityRoute, deleteCityFromDatabase})(CityPage)
 
-/////////////////////////////////////////////////////////////////////////////////
-// STYLED-COMPONENTS
-/////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
+// / / STYLED-COMPONENTS
+// /////////////////////////////////////////////////////////////////////////////
+// / /
 
-
-const Body = styled.div`
+const Body = styled.div `
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -119,7 +123,7 @@ const Body = styled.div`
       }};
 `
 
-const Container = styled.div`
+const Container = styled.div `
     display: flex;
     flex-direction: row;
     flex-wrap:wrap;
@@ -140,7 +144,7 @@ const Container = styled.div`
     }
 `;
 
-const DeleteButton = styled.div`
+const DeleteButton = styled.div `
     display: flex;
     flex-direction: column;
     flex-wrap:wrap;
@@ -157,7 +161,7 @@ const DeleteButton = styled.div`
       }
 `;
 
-const CityTitle = styled.div`
+const CityTitle = styled.div `
     display: flex;
     flex-direction: row;
     width: 70vh;
@@ -166,8 +170,7 @@ const CityTitle = styled.div`
     margin:5px;
     padding:5px;`
 
-
-const CityBox = styled.div`
+const CityBox = styled.div `
     width: 40vh;
     height: 40vh;
     display: flex;
