@@ -25,7 +25,7 @@ class CityPage extends Component {
           Home
         </button>
         <br/>
-
+      <Container>
           {this
             .props
             .cities
