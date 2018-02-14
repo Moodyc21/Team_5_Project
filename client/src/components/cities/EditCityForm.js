@@ -62,6 +62,10 @@ class EditCityForm extends Component {
 
 export default connect(null, {editCityInDatabase, push})(EditCityForm)
 
+/////////////////////////////////////////////////////////////////////////////////
+// STYLED-COMPONENTS
+/////////////////////////////////////////////////////////////////////////////////
+
 const Container = styled.div `
     display: flex;
     flex-direction: column;
