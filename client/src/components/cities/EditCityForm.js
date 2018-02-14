@@ -2,14 +2,33 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import styled from 'styled-components'
-import {editCityInDatabase} from '../../actions/thunk.actions.js'
+import {editCityInDatabase, getOneCityRoute} from '../../actions/thunk.actions.js'
 
 class EditCityForm extends Component {
 
+  componentWillMount() {
+    this
+      .props
+      .getOneCityRoute(this.props.match.params.cityId)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      cityBeingEdited: {
+        id: this.props.match.params.userId,
+        name: nextProps.cityBeingEdited.name,
+        location: nextProps.cityBeingEdited.location,
+        img_url: nextProps.cityBeingEdited.img_url
+      }
+    })
+  }
+
   state = {
     cityBeingEdited: {
-      id: this.props.city._id,
-      cityname: this.props.city.name
+      id: "",
+      name: "",
+      location: "",
+      img_url: ""
     }
   }
 
@@ -28,26 +47,30 @@ class EditCityForm extends Component {
     this
       .props
       .editCityInDatabase(this.state.cityBeingEdited)
-      this.props.push(`/cities`)
+      .then((response) => {
+        (this.props.push(`/cities`))
+      })
   }
 
   render() {
     return (
       <Container>
-        <div> Name:</div>
+        <div>
+          Name:</div>
         <input
           type="text"
           name="name"
           onChange={this.handleChange}
-          value={this.state.cityBeingEdited.name}/> 
-          <br/>
-          <div> Location:</div>
-          <input
+          value={this.state.cityBeingEdited.name}/>
+        <br/>
+        <div>
+          Location:</div>
+        <input
           type="text"
           name="location"
           onChange={this.handleChange}
           value={this.state.cityBeingEdited.location}/>
-          <input
+        <input
           type="text"
           name="img_url"
           onChange={this.handleChange}
@@ -60,7 +83,11 @@ class EditCityForm extends Component {
   }
 }
 
-export default connect(null, {editCityInDatabase, push})(EditCityForm)
+const mapStateToProps = (state) => {
+  return {cityBeingEdited: state.cities[0]}
+}
+
+export default connect(mapStateToProps, {getOneCityRoute, editCityInDatabase, push})(EditCityForm)
 
 /////////////////////////////////////////////////////////////////////////////////
 // STYLED-COMPONENTS

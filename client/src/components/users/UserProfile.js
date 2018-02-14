@@ -1,61 +1,56 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {push} from 'react-router-redux'
 import styled from 'styled-components'
-import axios from 'axios'
-import {} from '../../actions/thunk.actions.js'
+import {connect} from 'react-redux'
+import {getOneUserRoute} from '../../actions/thunk.actions.js'
 
+// import {push} from 'react-router-redux' import axios from 'axios'
 
 class UserProfile extends Component {
-    constructor() {
-        super();
-        this.state = {
-            user: {},
-            posts: []
-        };
-    }
 
     componentWillMount() {
         const userId = this.props.match.params.id;
-        this.fetchUserAndPostData(userId)
+        this
+            .props
+            .getOneUserRoute(userId)
     }
-
-    fetchUserAndPostData = async(userId) => {
-        try {
-            const userResponse = await axios.get(`/api/users/${userId}`)
-            const postsResponse = await axios.get(`/api/users/${userId}/posts`)
-            await this.setState({user: userResponse.data, posts: postsResponse.data});
-        } catch (error) {
-            console.log(error)
-            await this.setState({error: error.message})
-        }
-    }
+    // fetchUserAndPostData = async(userId) => {     try {         const
+    // userResponse = await axios.get(`/api/users/${userId}`)         const
+    // postsResponse = await axios.get(`/api/users/${userId}/posts`)         await
+    // this.setState({user: userResponse.data, posts: postsResponse.data});     }
+    // catch (error) {         console.log(error)         await
+    // this.setState({error: error.message})     } }
 
     render() {
         return (
             <Container>
-                <img src={this.state.user.img_url} alt={this.state.user.username}/>
-                <h1>{this.state.user.firstname} {this.state.user.lastname}</h1>
+                User Profile Route {/* <img
+                    src={this.props.userBeingShown.img_url}
+                    alt={this.props.userBeingShown.username}/>
+                <h1>{this.props.userBeingShown.firstname} {this.props.userBeingShown.lastname}</h1>
                 {this
-                    .state
+                    .props
                     .posts
                     .map(post => (
                         <div key={post.id}>
                             <h4>{post.title}</h4>
                             <h4>{post.content}</h4>
                         </div>
-                    ))}
+                    ))} */}
             </Container>
         );
     }
 }
 
-export default UserProfile;
+const mapStateToProps = (state) => {
+    return {userBeingShown: state.users[0]}
+}
 
-/////////////////////////////////////////////////////////////////////////////////
-// STYLED-COMPONENTS
-/////////////////////////////////////////////////////////////////////////////////
+export default connect(mapStateToProps, {getOneUserRoute})(UserProfile);
 
+// /////////////////////////////////////////////////////////////////////////////
+// / / STYLED-COMPONENTS
+// /////////////////////////////////////////////////////////////////////////////
+// / /
 
 const Container = styled.div `
     display: flex;
