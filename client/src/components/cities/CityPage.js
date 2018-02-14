@@ -28,14 +28,12 @@ class CityPage extends Component {
        
         <Container>
 
-
           {this
             .props
             .cities
             .map((city, i) => {
               return (
                 <div>
-
                   <CityBox key={i}>
                     <CityTitle>
                       <div>
@@ -45,7 +43,7 @@ class CityPage extends Component {
                         </div>
                         <DeleteButton onClick={() => this.props.deleteCityFromDatabase(city)}>
                           X
-                  </DeleteButton>
+                        </DeleteButton>
                     </CityTitle>
                     <div>
                       <img src={city.img_url} alt={city.name} />
