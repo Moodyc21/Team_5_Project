@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import styled from 'styled-components'
-import { connect } from 'react-redux'
-import { getCityRoute } from '../../actions/thunk.actions.js'
+import {connect} from 'react-redux'
+import {getCityRoute} from '../../actions/thunk.actions.js'
 
 // import {push} from 'react-router-redux' import axios from 'axios'
 
@@ -17,48 +17,51 @@ class CityProfile extends Component {
     const cityId = this.props.match.params.cityId;
     return (
       <Container>
-        {this.props.cities.map((city, i) => {
-          if (city.id == cityId) {
-            return (
+        {this
+          .props
+          .cities
+          .map((city, i) => {
+            if (city.id == cityId) {
+              return (
 
-              <div key={i}>
-               <h2> {city.name}</h2>
+                <div key={i}>
+                  <h2>
+                    {city.name}</h2>
 
-                <div>
-                  Name:{city.name}
+                  <div>
+                    Name:{city.name}
+                  </div>
+                  <div>
+                    Location:{city.location}
+                  </div>
+                  <br/>
+                  <div>
+                    <img src={city.img_url} alt={city.name}/>
+                  </div>
+                  <div>
+                    {city.post}
+                  </div>
                 </div>
-                <div>
-                  Location:{city.location}
-                </div>
-                <br/>
-                <div>
-                  <img src={city.img_url} alt={city.name}/>
-                </div>
-                <div>
-                 {city.post}
-                </div>
-              </div>
-            )
-          }
+              )
+            }
 
-        })}
+          })}
       </Container>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  return { cities: state.cities }
+  return {cities: state.cities}
 }
 
-export default connect(mapStateToProps, { getCityRoute })(CityProfile);
+export default connect(mapStateToProps, {getCityRoute})(CityProfile);
 
 // /////////////////////////////////////////////////////////////////////////////
 // / / STYLED-COMPONENTS
 // /////////////////////////////////////////////////////////////////////////////
-// / /
 
-const Container = styled.div`
+const Container = styled.div `
     display: flex;
     flex-direction: column;
     justify-content: center;
