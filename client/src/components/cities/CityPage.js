@@ -29,7 +29,7 @@ class CityPage extends Component {
                   Location: {city.location}
                 </div>
                 <div>
-                  <img src={city.img_url} alt={city.name}/>
+                  <img width="400" src={city.img_url} alt={city.name}/>
                 </div>
                 <div>
                   city ID: {city.id}
