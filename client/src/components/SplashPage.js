@@ -9,13 +9,14 @@ class SplashPage extends Component {
     return (
       <Container>
         <h1>City Point</h1>
-
+        <div>
         <button type='button' onClick={() => this.props.push('/users')}>
           Users
         </button>
         <button type='button' onClick={() => this.props.push('/cities')}>
           Cities
         </button>
+        </div>
       </Container>
 
     );
@@ -47,13 +48,14 @@ const Container = styled.div `
     h1{
      position: absolute;
      top:65px;
-    left:100px;
+     margin:20px;
     }
     button{
       border:1px solid black;
       background:none;
-      margin-left: 150px;
-
+      margin-left: 20px;
+      background:rgba(255,255,255,0.35);
+      box-shadow:4px 4px 8px rgba(0,0,0,0.35);
       width:100px;
       padding:7.5px;
       font-size: 25px;
@@ -62,6 +64,8 @@ const Container = styled.div `
       border-radius: 5px;
       cursor: pointer;
       &:hover{
-      background:rgba(0,0,0,0.15)
+        color:white;
+      background:rgb(0,0,0);
+      transform:translateY(2px);
       }
     }`
