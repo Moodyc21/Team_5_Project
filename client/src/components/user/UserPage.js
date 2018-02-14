@@ -39,15 +39,9 @@ class UserPage extends Component {
                   </div>
 
                   <div>
-<<<<<<< HEAD
-                  <button onClick={() => this.props.push(`/users/:userId/edit`)}>
-                      Edit
-                  </button>
-=======
                     <button onClick={() => this.props.push(`/users/${user.id}/edit`)}>
                       Edit
                     </button>
->>>>>>> styled
 
                     <button onClick={() => this.props.deleteUserFromDatabase(user)}>
                       Delete
