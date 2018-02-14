@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import {connect} from 'react-redux'
-import {getCityRoute, getPostsRoute} from '../../actions/thunk.actions.js'
-import {push} from 'react-router-redux'
+import { connect } from 'react-redux'
+import { getCityRoute, getPostsRoute } from '../../actions/thunk.actions.js'
+import { push } from 'react-router-redux'
 import Navbar from '../navbar/Navbar'
 class CityProfile extends Component {
 
@@ -19,10 +19,10 @@ class CityProfile extends Component {
   render() {
     const cityId = this.props.match.params.cityId;
     return (
-      
+
       <Container>
         <div>
-        <Navbar />
+          <Navbar />
         </div>
         {this
           .props
@@ -30,7 +30,6 @@ class CityProfile extends Component {
           .map((city, i) => {
             if (city.id == cityId) {
               return (
-              <div>
                 <div key={i}>
                   <h2>
                     {city.name}</h2>
@@ -47,7 +46,7 @@ class CityProfile extends Component {
                   <div>
                     <h3>Posts</h3>
                   </div>
-                  <br/>
+                  <br />
                   <div>
                     <button onClick={() => this.props.push(`/cities/${city.id}/edit`)}>
                       Edit {city.name}
@@ -73,16 +72,16 @@ class CityProfile extends Component {
             )
           })}
       </Container>
-      
+
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  return {cities: state.cities, posts: state.posts}
+  return { cities: state.cities, posts: state.posts }
 }
 
-export default connect(mapStateToProps, {getCityRoute, getPostsRoute, push})(CityProfile);
+export default connect(mapStateToProps, { getCityRoute, getPostsRoute, push })(CityProfile);
 
 // /////////////////////////////////////////////////////////////////////////////
 // / / STYLED-COMPONENTS
