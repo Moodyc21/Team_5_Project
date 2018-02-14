@@ -25,24 +25,22 @@ class CityPage extends Component {
           Home
         </button>
         <br/>
-      <Container>
+        <Container>
           {this
             .props
             .cities
             .map((city, i) => {
               return (
-                <div>
-                  <CityBox key={i}>
-                    <CityTitle>
-                      <div>
-                        {city.name}
-                        <br />
-                        {city.location}
-                        </div>
-                        <DeleteButton onClick={() => this.props.deleteCityFromDatabase(city)}>
-                          X
-                        </DeleteButton>
-                    </CityTitle>
+                <CityBox key={i}>
+                  <CityTitle>
+                    <div>
+                      {city.name}
+                      <br/> {city.location}
+                    </div>
+                    <DeleteButton onClick={() => this.props.deleteCityFromDatabase(city)}>
+                      X
+                    </DeleteButton>
+                  </CityTitle>
 
                   <div>
                     <img src={city.img_url} alt={city.name}/>
