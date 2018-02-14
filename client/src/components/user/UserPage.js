@@ -10,6 +10,10 @@ class UserPage extends Component {
       .props
       .getUserRoute()
   }
+  componentWillReceiveProps(nextProps) {
+    console.log("In another method")
+    console.log('', nextProps)
+  }
   render() {
     return (
       <Body>
