@@ -16,6 +16,20 @@ export function getCityRoute() {
   }
 }
 
+export function sendOneCityToState(cityFromDatabase) {
+  return {type: 'GET_ONE_CITY', cityFromDatabase}
+}
+
+export function getOneCityRoute(cityId) {
+  return function (dispatch) {
+    return axios
+      .get(`/api/cities/${cityId}`)
+      .then((response) => {
+        dispatch(sendOneCityToState(response.data))
+      })
+  }
+}
+
 export function sendNewCityToState(newCityData) {
   return {type: 'CREATE_CITY', newCityData}
 }

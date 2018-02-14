@@ -1,80 +1,70 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
-import {getCityRoute, deleteCityFromDatabase} from '../../actions/thunk.actions.js'
 import styled from 'styled-components'
+import {getUserRoute, deleteUserFromDatabase} from '../../actions/thunk.actions.js'
 
-class CityPage extends Component {
+class UserPage extends Component {
   componentWillMount() {
     this
       .props
-      .getCityRoute()
+      .getUserRoute()
   }
+
   render() {
     return (
       <Body>
+        <Header>
+          <div>Welcome to User Page</div>
+        </Header>
         <div>
-          <h2>CityPage</h2>
-        </div>
-        <div>
-          <button onClick={() => this.props.push(`/cities/new`)}>
-            Add a new City
+          <button onClick={() => this.props.push(`/users/new`)}>
+            New User
           </button>
         </div>
         <button onClick={() => this.props.push('/')}>
           Home
         </button>
-        <br/>
-
         <Container>
 
           {this
             .props
-            .cities
-            .map((city, i) => {
+            .users
+            .map((user, i) => {
               return (
-                <CityBox key={i}>
-                  <CityTitle>
-                    <div>
-                      {city.name}
-                      <br/> {city.location}
-                    </div>
-                    <DeleteButton onClick={() => this.props.deleteCityFromDatabase(city)}>
-                      X
-                    </DeleteButton>
-                  </CityTitle>
-
-                  <div>
-                    <img src={city.img_url} alt={city.name}/>
+                <UserBox key={i}>
+                  <div onClick={() => this.props.push(`/users/${user.id}/show`)}>
+                    <img width="200" src={user.img_url} alt={user.username}/>
+                    <br/> {user.username}
                   </div>
 
                   <div>
-                    <button onClick={() => this.props.push(`/cities/${city.id}/edit`)}>
-                      Edit {city.name}
+                    <button onClick={() => this.props.push(`/users/${user.id}/edit`)}>
+                      Edit
                     </button>
 
-                    <button onClick={() => this.props.deleteCityFromDatabase(city)}>
-                      Delete {city.name}
+                    <button onClick={() => this.props.deleteUserFromDatabase(user)}>
+                      Delete
                     </button>
                   </div>
-                </CityBox>
+                </UserBox>
               )
             })}
 
         </Container>
+
       </Body>
     )
   }
 }
 const mapStateToProps = (state) => {
-  return {cities: state.cities}
+  return {users: state.users}
 }
-export default connect(mapStateToProps, {push, getCityRoute, deleteCityFromDatabase})(CityPage)
+export default connect(mapStateToProps, {push, getUserRoute, deleteUserFromDatabase})(UserPage)
 
 // /////////////////////////////////////////////////////////////////////////////
 // / / STYLED-COMPONENTS
-// /////////////////////////////////////////////////////////////////////////////
-// / /
+// //////////////////////////////////////////////////////////////////////////////
 
 const Body = styled.div `
     display: flex;
@@ -92,27 +82,11 @@ const Body = styled.div `
     background-repeat:no-repeat;
     font-family: 'Montserrat', sans-serif;
     /* background-color: #212121; */
-    input{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border:1px solid black;
-      background:none;
-      border-radius:2px;
-      background:rgba(255,255,255,0.45);
-      width:30vh;
-      height: 4vh;
-    }
     button{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       border:1px solid black;
       background:none;
-      width: 20vh;
-      height: 5vh;
+      width: 125px;
+      height: 45px;
       padding:7.5px;
       font-size: 15px;
       text-align: center;
@@ -136,41 +110,32 @@ const Container = styled.div `
     color:black;
     font-family: 'Montserrat', sans-serif;
     margin: 40px;
+    a{
+        text-decoration: none;
+        color:black;
+        &:hover{
+        color: #696969;
+        transform:translateY(2px);
+        text-shadow: 0px 0px 0px #bdbdbd;
+        z-index: 3;
+    }
+    }
 `;
 
-const DeleteButton = styled.div `
+const Header = styled.h1 `
+    margin: 20 auto;
+    color: white;
+    font-size: 3vh;
+    text-shadow: 2.5px 2.5px 0px #3f3f3f;
+    /* border-bottom: thin solid white; */
+`;
+
+const UserBox = styled.div `
+    width: 27.5vh;
+    height: 27.5vh;
     display: flex;
     flex-direction: column;
-    flex-wrap:wrap;
     justify-content: center;
-    align-items: center;
-    width: 3.5vh;
-    height: 3.5vh;
-    font-size: 3vh;
-    border: 1px solid black;
-    margin: 20px;
-    &:hover{
-        color: red;
-      background:rgba(0,0,0,0.15);
-      }
-`;
-
-const CityTitle = styled.div `
-    display: flex;
-    flex-direction: row;
-    width: 70vh;
-    justify-content: flex-end;
-    align-items: center;
-    margin:5px;
-    padding:5px;`
-
-const CityBox = styled.div `
-    width: 40vh;
-    height: 40vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap:wrap;
     align-items: center;
     margin:5px;
     padding:5px;
@@ -180,10 +145,11 @@ const CityBox = styled.div `
     font-size: 2.25vh;
     box-shadow: 3px 3px 0px #3f3f3f;
     img {
-        width: 38vh;
-    height:25vh;
+        width: 15vh;
+    height:15vh;
     border: 1px solid darkgray;
     box-shadow: 1.5px 1.5px 0px #7e7e7e;
+    border-radius: 8vh;
     align-self: center;
     margin:5px;
 
@@ -193,7 +159,7 @@ const CityBox = styled.div `
         box-shadow: 1.5px 1.5px 0px #7e7e7e;
         z-index: 3;
     }
-    /* input{
+    input{
       display: flex;
     flex-direction: column;
     justify-content: center;
@@ -202,7 +168,7 @@ const CityBox = styled.div `
       background:none;
       border-radius:2px;
       width: 20vh;
-    } */
+    }
     button{
       border:1px solid black;
       background:none;
