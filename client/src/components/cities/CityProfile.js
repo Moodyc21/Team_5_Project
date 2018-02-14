@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
-import {connect} from 'react-redux'
-import {getCityRoute} from '../../actions/thunk.actions.js'
+import { connect } from 'react-redux'
+import { getCityRoute } from '../../actions/thunk.actions.js'
 
-import {push} from 'react-router-redux' 
+import { push } from 'react-router-redux'
 // import axios from 'axios'
 
 class CityProfile extends Component {
@@ -24,7 +24,7 @@ class CityProfile extends Component {
           .map((city, i) => {
             if (city.id == cityId) {
               return (
-
+              <div>
                 <div key={i}>
                   <h2>
                     {city.name}</h2>
@@ -35,9 +35,9 @@ class CityProfile extends Component {
                   <div>
                     Location:{city.location}
                   </div>
-                  <br/>
+                  <br />
                   <div>
-                    <img src={city.img_url} alt={city.name}/>
+                    <img src={city.img_url} alt={city.name} />
                   </div>
                   <div>
                     {city.post}
@@ -46,40 +46,40 @@ class CityProfile extends Component {
                 <div>
                   Location:{city.location}
                 </div>
-                <br/>
+                <br />
                 <div>
-                <img src={city.img_url} alt={city.name}/>
+                  <img src={city.img_url} alt={city.name} />
                 </div>
                 <div>
-                    <button onClick={() => this.props.push(`/cities/${city.id}/edit`)}>
-                      Edit {city.name}
-                    </button>
+                  <button onClick={() => this.props.push(`/cities/${city.id}/edit`)}>
+                    Edit {city.name}
+                  </button>
 
-                  </div>
+                </div>
                 <div>
-                 {city.post}
+                  {city.post}
                 </div>
               </div>
-            )
-          }
+      )
+    }
 
-          })}
+    })}
       </Container>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  return {cities: state.cities}
+  return { cities: state.cities }
 }
 
-export default connect(mapStateToProps, { getCityRoute,push })(CityProfile);
+export default connect(mapStateToProps, { getCityRoute, push })(CityProfile);
 
 // /////////////////////////////////////////////////////////////////////////////
 // / / STYLED-COMPONENTS
 // /////////////////////////////////////////////////////////////////////////////
 
-const Container = styled.div `
+const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
