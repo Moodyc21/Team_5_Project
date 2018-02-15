@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import styled from 'styled-components'
-import {editPostInDatabase} from '../../actions/thunk.actions.js'
+import {editPostInDatabase, getOnePostRoute} from '../../actions/thunk.actions.js'
 import Navbar from '../navbar/Navbar'
 
 class EditPostForm extends Component {
@@ -10,18 +10,17 @@ class EditPostForm extends Component {
     this
       .props
       .getOnePostRoute(this.props.match.params.cityId, this.props.match.params.postId)
-      
+
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       postBeingEdited: {
         title: nextProps.postBeingEdited.title,
-        content: nextProps.postBeingEdited.content,
+        content: nextProps.postBeingEdited.content
       }
     })
   }
-
 
   state = {
     postBeingEdited: {
@@ -82,11 +81,11 @@ class EditPostForm extends Component {
   }
 }
 
-export default connect(null, {editPostInDatabase})(EditPostForm)
+export default connect(null, {editPostInDatabase, getOnePostRoute})(EditPostForm)
 
-///////////////////////////////////////////////////////////////////////////////
-//// STYLED-COMPONENTS
-///////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
+// // STYLED-COMPONENTS
+// /////////////////////////////////////////////////////////////////////////////
 
 const Container = styled.div `
     display: flex;
