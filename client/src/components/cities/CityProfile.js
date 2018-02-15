@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 import {connect} from 'react-redux'
-import {getCityRoute, getPostsRoute} from '../../actions/thunk.cities.js'
+import {getCityRoute} from '../../actions/thunk.cities.js'
+import {getPostsRoute} from '../../actions/thunk.posts.js'
 import {push} from 'react-router-redux'
 import Navbar from '../navbar/Navbar'
 class CityProfile extends Component {
@@ -60,6 +61,7 @@ class CityProfile extends Component {
               </Post>
             )
           })}
+
       </Container>
 
     );
