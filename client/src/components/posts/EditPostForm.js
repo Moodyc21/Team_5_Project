@@ -17,7 +17,6 @@ class EditPostForm extends Component {
   componentWillReceiveProps(nextProps) {
     this.setState({
       postBeingEdited: {
-        id: this.props.match.params.postId,
         title: nextProps.postBeingEdited.title,
         content: nextProps.postBeingEdited.content,
       }
@@ -28,7 +27,6 @@ class EditPostForm extends Component {
   state = {
     postBeingEdited: {
       user_id: 1,
-      id: "",
       title: "",
       content: ""
     }
@@ -46,14 +44,16 @@ class EditPostForm extends Component {
   }
 
   handleEditPost = () => {
+    const postId = this.props.match.params.postId
     const cityId = this.props.match.params.cityId
     const editPost = this.state.postBeingEdited
     editPost.city_id = cityId
+    editPost.post_id = postId
     this
       .props
       .editPostInDatabase(cityId, editPost)
       .then(() => {
-        (this.props.push(`/cities/${cityId}/posts`))
+        (this.props.push(`/cities/${cityId}/posts/${postId}/show`))
       })
   }
 
