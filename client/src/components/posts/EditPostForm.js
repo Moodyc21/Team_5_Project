@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import styled from 'styled-components'
-import {editPostInDatabase, getOnePostRoute} from '../../actions/thunk.actions.js'
+import {editPostInDatabase, getOnePostRoute} from '../../actions/thunk.posts.js'
 import Navbar from '../navbar/Navbar'
 
 class EditPostForm extends Component {

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
-import {getCityRoute, deleteCityFromDatabase} from '../../actions/thunk.actions.js'
+import {getCityRoute, deleteCityFromDatabase} from '../../actions/thunk.cities.js'
 import styled from 'styled-components'
 
 class CityPage extends Component {
@@ -24,7 +24,7 @@ class CityPage extends Component {
             New City
           </button>
         </div>
-        
+
         <br/>
         <Container>
           {this
@@ -47,7 +47,6 @@ class CityPage extends Component {
                     <img src={city.img_url} alt={city.name}/>
                   </div>
 
-                  
                 </CityBox>
               )
             })}
@@ -62,10 +61,9 @@ const mapStateToProps = (state) => {
 }
 export default connect(mapStateToProps, {push, getCityRoute, deleteCityFromDatabase})(CityPage)
 
-///////////////////////////////////////////////////////////////////////////////
-//// STYLED-COMPONENTS
 // /////////////////////////////////////////////////////////////////////////////
-
+// // STYLED-COMPONENTS
+// /////////////////////////////////////////////////////////////////////////////
 
 const Body = styled.div `
     display: flex;

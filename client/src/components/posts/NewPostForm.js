@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import styled from 'styled-components'
-import {sendNewPostToDatabase} from '../../actions/thunk.actions.js'
+import {sendNewPostToDatabase} from '../../actions/thunk.posts.js'
 import Navbar from '../navbar/Navbar'
 
 class PostForm extends Component {
@@ -45,7 +45,9 @@ class PostForm extends Component {
         <div>
           <Navbar/>
         </div>
-        <br/> <br/> <br/>
+        <br/>
+        <br/>
+        <br/>
         <input
           className="newPost"
           type="text"
@@ -72,10 +74,10 @@ class PostForm extends Component {
 }
 export default connect(null, {sendNewPostToDatabase, push})(PostForm)
 
-
-/////////////////////////////////////////////////////////////////////////////////
-// STYLED-COMPONENTS
-/////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+// / STYLED-COMPONENTS
+// //////////////////////////////////////////////////////////////////////////////
+// /
 
 const Container = styled.div `
     display: flex;

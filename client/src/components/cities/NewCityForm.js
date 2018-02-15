@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 // import styled from 'styled-components'
-import {sendNewCityToDatabase} from '../../actions/thunk.actions.js'
+import {sendNewCityToDatabase} from '../../actions/thunk.cities.js'
 import Navbar from '../navbar/Navbar'
 
 class NewCityForm extends Component {
@@ -40,10 +40,10 @@ class NewCityForm extends Component {
 
   render() {
     return (
-      
+
       <div>
         <div>
-        <Navbar />
+          <Navbar/>
         </div>
         <input
           className="newCity"

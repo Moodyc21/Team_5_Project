@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import styled from 'styled-components'
-import {getPostsRoute, deletePostFromDatabase} from '../../actions/thunk.actions.js'
+import {getPostsRoute, deletePostFromDatabase} from '../../actions/thunk.posts.js'
 import EditPostForm from './EditPostForm.js'
 import Navbar from '../navbar/Navbar'
 
@@ -40,7 +40,8 @@ class PostPage extends Component {
                     <button onClick={() => this.props.deletePostFromDatabase(cityId, post)}>
                       Delete
                     </button>
-                    <button onClick={() => this.props.push(`/cities/${cityId}/posts/${post.id}/edit`)}>
+                    <button
+                      onClick={() => this.props.push(`/cities/${cityId}/posts/${post.id}/edit`)}>
                       Edit
                     </button>
                   </div>
@@ -60,10 +61,9 @@ const mapStateToProps = (state) => {
 }
 export default connect(mapStateToProps, {push, getPostsRoute, deletePostFromDatabase})(PostPage)
 
-///////////////////////////////////////////////////////////////////////////////
-//// STYLED-COMPONENTS
-///////////////////////////////////////////////////////////////////////////////
-
+// /////////////////////////////////////////////////////////////////////////////
+// // STYLED-COMPONENTS
+// /////////////////////////////////////////////////////////////////////////////
 
 const Body = styled.div `
     font-family: 'Montserrat', sans-serif;

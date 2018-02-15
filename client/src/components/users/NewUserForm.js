@@ -4,8 +4,7 @@ import {push} from 'react-router-redux'
 import styled from 'styled-components'
 import Navbar from '../navbar/Navbar'
 
-
-import {sendNewUserToDatabase} from '../../actions/thunk.actions.js'
+import {sendNewUserToDatabase} from '../../actions/thunk.users.js'
 
 class UserForm extends Component {
   state = {
@@ -45,10 +44,11 @@ class UserForm extends Component {
     return (
       <Container>
         <div>
-          <Navbar />
+          <Navbar/>
         </div>
-        
-          <div> Username:</div>
+
+        <div>
+          Username:</div>
         <input
           className="newUser"
           type="text"
@@ -57,7 +57,8 @@ class UserForm extends Component {
           value={this.state.newUserForm.username}
           placeholder="Username"/>
         <br/>
-        <div> Firstname:</div>
+        <div>
+          Firstname:</div>
         <input
           className="newUser"
           type="text"
@@ -66,7 +67,8 @@ class UserForm extends Component {
           value={this.state.newUserForm.firstname}
           placeholder="First Name"/>
         <br/>
-        <div> Lastname:</div>
+        <div>
+          Lastname:</div>
         <input
           className="newUser"
           type="text"
@@ -75,7 +77,8 @@ class UserForm extends Component {
           value={this.state.newUserForm.lastname}
           placeholder="Last Name"/>
         <br/>
-        <div> Image-URL:</div>
+        <div>
+          Image-URL:</div>
         <input
           className="newUser"
           type="text"
@@ -83,11 +86,11 @@ class UserForm extends Component {
           onChange={this.handleNewUserChange}
           value={this.state.newUserForm.img_url}
           placeholder="Profile picture URL"/>
-           <br/>
+        <br/>
         <button onClick={this.handleAddNewUser}>
           Add User
         </button>
-       
+
       </Container>
     )
   }
@@ -95,9 +98,10 @@ class UserForm extends Component {
 
 export default connect(null, {sendNewUserToDatabase, push})(UserForm)
 
-/////////////////////////////////////////////////////////////////////////////////
-// STYLED-COMPONENTS
-/////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+// / STYLED-COMPONENTS
+// //////////////////////////////////////////////////////////////////////////////
+// /
 
 const Container = styled.div `
     display: flex;
