@@ -51,9 +51,9 @@ export function deletePostFromState(postToDeleteId) {
 export function deletePostFromDatabase(cityId, postToDeleteFromDatabase) {
   return function (dispatch) {
     return axios
-      .delete(`/api/cities/${cityId}/posts/${postToDeleteFromDatabase._id}`)
+      .delete(`/api/cities/${cityId}/posts/${postToDeleteFromDatabase.id}`)
       .then((response) => {
-        dispatch(deletePostFromState(postToDeleteFromDatabase._id))
+        dispatch(deletePostFromState(postToDeleteFromDatabase.id))
       })
   }
 }

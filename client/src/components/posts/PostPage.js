@@ -37,13 +37,13 @@ class PostPage extends Component {
                     Content: {post.content}
                   </div>
                   <div>
-                    <button onClick={() => this.props.deletePostFromDatabase(post)}>
+                    <button onClick={() => this.props.deletePostFromDatabase(cityId, post)}>
                       Delete
                     </button>
                   </div>
-                  <PostEdit>
+                  {/* <PostEdit>
                     <EditPostForm post={post}/>
-                  </PostEdit>
+                  </PostEdit> */}
                 </div>
               )
             })}

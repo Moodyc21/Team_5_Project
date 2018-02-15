@@ -15,7 +15,7 @@ function postReducer(state = [], action) {
       return state
 
     case 'DELETE_POST':
-      return state.filter(post => post._id !== action.postToDeleteId)
+      return state.filter(post => post.id !== action.postToDeleteId)
 
     default:
       return state
