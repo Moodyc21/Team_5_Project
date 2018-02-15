@@ -5,6 +5,9 @@ function postReducer(state = [], action) {
     case 'GET_POSTS':
       return [...action.postsFromDatabase]
 
+    case 'GET_ONE_POST':
+      return [action.postFromDatabase]
+
     case 'CREATE_POST':
       return [
         ...state,

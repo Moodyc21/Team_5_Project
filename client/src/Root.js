@@ -19,6 +19,7 @@ import CityProfile from './components/cities/CityProfile.js'
 
 import PostPage from './components/posts/PostPage.js'
 import NewPostForm from './components/posts/NewPostForm.js'
+import EditPostForm from './components/posts/EditPostForm.js'
 
 const history = createHistory()
 const store = configureStore(history)
@@ -39,6 +40,9 @@ const Root = () => (
 
         <Route exact path="/cities/:cityId/posts/new" component={NewPostForm}/>
         <Route exact path="/cities/:cityId/posts/" component={PostPage}/>
+        <Route exact path="/cities/:cityId/posts/:postId/edit" component={EditPostForm}/>
+
+
 
         <Route exact path="/users" component={UserPage}/>
         <Route exact path="/users/new" component={NewUserForm}/>

@@ -40,6 +40,9 @@ class PostPage extends Component {
                     <button onClick={() => this.props.deletePostFromDatabase(cityId, post)}>
                       Delete
                     </button>
+                    <button onClick={() => this.props.push(`/cities/${cityId}/posts/${post.id}/edit`)}>
+                      Edit
+                    </button>
                   </div>
                   {/* <PostEdit>
                     <EditPostForm post={post}/>

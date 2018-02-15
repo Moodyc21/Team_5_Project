@@ -16,6 +16,20 @@ export function getPostsRoute(cityId) {
   }
 }
 
+export function sendOnePostToState(postFromDatabase) {
+  return {type: 'GET_ONE_POST', postFromDatabase}
+}
+
+export function getOnePostRoute(cityId, postId) {
+  return function (dispatch) {
+    return axios
+      .get(`/api/cities/${cityId}/posts/${postId}`)
+      .then((response) => {
+        dispatch(sendOnePostToState(response.data))
+      })
+  }
+}
+
 export function sendNewPostToState(newPostData) {
   return {type: 'CREATE_POST', newPostData}
 }

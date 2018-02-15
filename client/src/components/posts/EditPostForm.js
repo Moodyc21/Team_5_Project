@@ -1,16 +1,36 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {push} from 'react-router-redux'
 import styled from 'styled-components'
-import {editPostInDatabase} from '../../actions/thunk.actions.js'
+import {editPostInDatabase, getOnePostRoute} from '../../actions/thunk.actions.js'
 import Navbar from '../navbar/Navbar'
 
 class EditPostForm extends Component {
 
+  componentWillMount(cityId, postId) {
+    this
+      .props
+      .getOnePostRoute(this.props.match.params.cityId, this.props.match.params.postId)
+      
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      postBeingEdited: {
+        id: this.props.match.params.postId,
+        title: nextProps.postBeingEdited.title,
+        content: nextProps.postBeingEdited.content,
+      }
+    })
+  }
+
+
   state = {
     postBeingEdited: {
-      id: this.props.post._id,
-      title: this.props.post.title,
-      content: this.props.post.content
+      user_id: 1,
+      id: "",
+      title: "",
+      content: ""
     }
   }
 
@@ -26,17 +46,23 @@ class EditPostForm extends Component {
   }
 
   handleEditPost = () => {
+    const cityId = this.props.match.params.cityId
+    const editPost = this.state.postBeingEdited
+    editPost.city_id = cityId
     this
       .props
-      .editPostInDatabase(this.state.postBeingEdited)
+      .editPostInDatabase(cityId, editPost)
+      .then(() => {
+        (this.props.push(`/cities/${cityId}/posts`))
+      })
   }
 
   render() {
     return (
       <Container>
-        {/* <div>
+        <div>
           <Navbar />
-        </div> */}
+        </div>
         <input
           type="text"
           name="title"
@@ -57,7 +83,11 @@ class EditPostForm extends Component {
   }
 }
 
-export default connect(null, {editPostInDatabase})(EditPostForm)
+const mapStateToProps = (state) => {
+  return {postBeingEdited: state.posts[0]}
+}
+
+export default connect(mapStateToProps, {editPostInDatabase, getOnePostRoute, push})(EditPostForm)
 
 ///////////////////////////////////////////////////////////////////////////////
 //// STYLED-COMPONENTS
