@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import styled from 'styled-components'
-import { connect } from 'react-redux'
-import { getCityRoute, getPostsRoute } from '../../actions/thunk.actions.js'
-import { push } from 'react-router-redux'
+import {connect} from 'react-redux'
+import {getCityRoute, getPostsRoute} from '../../actions/thunk.actions.js'
+import {push} from 'react-router-redux'
 import Navbar from '../navbar/Navbar'
 class CityProfile extends Component {
 
@@ -22,7 +22,7 @@ class CityProfile extends Component {
 
       <Container>
         <div>
-          <Navbar className="NavBox" />
+          <Navbar className="NavBox"/>
         </div>
         {this
           .props
@@ -34,24 +34,25 @@ class CityProfile extends Component {
                   <h2>{city.name}</h2>
                   <button onClick={() => this.props.push(`/cities/${city.id}/edit`)}>
                     Edit
-                    </button>
+                  </button>
                   Location:{city.location}
-                  <br />
-                  <img src={city.img_url} alt={city.name} />
-                  <h2>Posts</h2>
+                  <br/>
+                  <img src={city.img_url} alt={city.name}/>
                 </div>
-                
+
               )
             }
           })}
+
+        <h2 onClick={() => this.props.push(`/cities/${cityId}/posts/`)}>Posts</h2>
         {this
           .props
           .posts
           .map((post, i) => {
             return (
-              <Post> 
+              <Post>
                 <div key={i}>
-                  <div onClick={() => this.props.push(`/cities/${cityId}/posts/${post.id}`)}>
+                  <div>
                     <h3>{post.title}</h3>
                   </div>
                   {/* {post.content} */}
@@ -66,20 +67,20 @@ class CityProfile extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { cities: state.cities, posts: state.posts }
+  return {cities: state.cities, posts: state.posts}
 }
 
-export default connect(mapStateToProps, { getCityRoute, getPostsRoute, push })(CityProfile);
+export default connect(mapStateToProps, {getCityRoute, getPostsRoute, push})(CityProfile);
 
-////////////////////////////////////////////////////////////////////////////////
-/// STYLED-COMPONENTS
-///////////////////////////////////////////////////////////////////////////////
-const NavBox = styled.div`
+// /////////////////////////////////////////////////////////////////////////////
+// / / STYLED-COMPONENTS
+// /////////////////////////////////////////////////////////////////////////////
+const NavBox = styled.div `
 display: flex;
 flex-direction: row;
 background: black;
 `
-const Container = styled.div`
+const Container = styled.div `
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -130,7 +131,7 @@ const Container = styled.div`
       transform:translateY(2px);
       }};
 `
-const Post = styled.div`
+const Post = styled.div `
     display: flex;
     flex-direction: column;
     justify-content: center;
