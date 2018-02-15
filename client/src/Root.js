@@ -9,15 +9,16 @@ import SplashPage from './components/SplashPage.js'
 
 import UserPage from './components/users/UserPage.js'
 import NewUserForm from './components/users/NewUserForm.js'
-import EditUserForm from './components/users/EditUserForm.js';
-import UserProfile from './components/users/UserProfile.js';
+import EditUserForm from './components/users/EditUserForm.js'
+import UserProfile from './components/users/UserProfile.js'
 
 import CityPage from './components/cities/CityPage.js'
 import NewCityForm from './components/cities/NewCityForm.js'
-import EditCityForm from './components/cities/EditCityForm.js';
-import CityProfile from './components/cities/CityProfile.js';
+import EditCityForm from './components/cities/EditCityForm.js'
+import CityProfile from './components/cities/CityProfile.js'
 
-import PostPage from './components/posts/PostPage.js';
+import PostPage from './components/posts/PostPage.js'
+import NewPostForm from './components/posts/NewPostForm.js'
 
 const history = createHistory()
 const store = configureStore(history)
@@ -25,17 +26,19 @@ console.log(store)
 
 const Root = () => (
   <Provider store={store}>
-  
+
     <ConnectedRouter history={history}>
       <div>
-  
+
         <Route exact path="/" component={SplashPage}/>
 
         <Route exact path="/cities" component={CityPage}/>
         <Route exact path="/cities/new" component={NewCityForm}/>
         <Route exact path="/cities/:cityId/edit" component={EditCityForm}/>
         <Route exact path="/cities/:cityId/show" component={CityProfile}/>
-        <Route exact path="/cities/:cityId/posts/:postId" component={PostPage}/>
+
+        <Route exact path="/cities/:cityId/posts/new" component={NewPostForm}/>
+        <Route exact path="/cities/:cityId/posts/" component={PostPage}/>
 
         <Route exact path="/users" component={UserPage}/>
         <Route exact path="/users/new" component={NewUserForm}/>

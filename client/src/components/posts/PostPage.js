@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {push} from 'react-router-redux'
 import styled from 'styled-components'
-import { getPostsRoute, deletePostFromDatabase } from '../../actions/thunk.actions.js'
+import {getPostsRoute, deletePostFromDatabase} from '../../actions/thunk.actions.js'
 import EditPostForm from './EditPostForm.js'
 import Navbar from '../navbar/Navbar'
 
@@ -14,37 +14,35 @@ class PostPage extends Component {
       .getPostsRoute(cityId)
   }
   render() {
+    const cityId = this.props.match.params.cityId
     return (
       <Body>
-        <Navbar />
+        <Navbar/>
         <h2>PostPage</h2>
         <Post>
           <div>
-        <button onClick={() => this.props.push(`/posts/new`)}>
-            New Post
-          </button>
-          <button onClick={() => this.props.push('/')}>
-            Home
-        </button>
-        </div>
+            <button onClick={() => this.props.push(`/cities/${cityId}/posts/new`)}>
+              New Post
+            </button>
+          </div>
           {this
             .props
             .posts
             .map((post, i) => {
               return (
-                <div key={i}>         
+                <div key={i}>
                   <div>
                     Title: {post.title}
-                    <br />
+                    <br/>
                     Content: {post.content}
                   </div>
                   <div>
                     <button onClick={() => this.props.deletePostFromDatabase(post)}>
                       Delete
-                  </button>
+                    </button>
                   </div>
                   <PostEdit>
-                    <EditPostForm post={post} />
+                    <EditPostForm post={post}/>
                   </PostEdit>
                 </div>
               )
@@ -55,22 +53,23 @@ class PostPage extends Component {
   }
 }
 const mapStateToProps = (state) => {
-  return { posts: state.posts }
+  return {posts: state.posts}
 }
-export default connect(mapStateToProps, { push, getPostsRoute, deletePostFromDatabase })(PostPage)
+export default connect(mapStateToProps, {push, getPostsRoute, deletePostFromDatabase})(PostPage)
 
-/////////////////////////////////////////////////////////////////////////////////
-// STYLED-COMPONENTS
-/////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
+// / / STYLED-COMPONENTS
+// /////////////////////////////////////////////////////////////////////////////
+// / /
 
-const Body = styled.div`
+const Body = styled.div `
     font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;`
 
-const PostEdit = styled.div`
+const PostEdit = styled.div `
 font-family: 'Montserrat', sans-serif;
 display: flex;
 flex-direction: column;
@@ -80,7 +79,7 @@ margin: 30px;
 position: absolute;
 `
 
-const Post = styled.div`
+const Post = styled.div `
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -125,5 +124,3 @@ const Post = styled.div`
       width: 60vh;
     }
 `
-
-

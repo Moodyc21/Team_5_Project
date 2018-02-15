@@ -6,8 +6,11 @@ import {sendNewPostToDatabase} from '../../actions/thunk.actions.js'
 import Navbar from '../navbar/Navbar'
 
 class PostForm extends Component {
+
   state = {
-    newPostForm: {}
+    newPostForm: {
+      user_id: 1
+    }
   }
 
   handleNewPostChange = (event) => {
@@ -23,25 +26,24 @@ class PostForm extends Component {
   };
 
   handleAddNewPost = () => {
+
+    const cityId = this.props.match.params.cityId
+    const newPost = this.state.newPostForm
+    newPost.city_id = cityId
+    console.log(newPost)
     this
       .props
-      .sendNewPostToDatabase(this.state.newPostForm)
-    this
-      .props
-      .push(`/posts`)
-    this.setState({
-      newPostForm: {
-        title: "",
-        content: ""
-      }
-    })
+      .sendNewPostToDatabase(cityId, newPost)
+      .then(() => {
+        (this.props.push(`/cities/${cityId}/show`))
+      })
   };
 
   render() {
     return (
       <div>
         <div>
-          <Navbar />
+          <Navbar/>
         </div>
         <input
           className="newPost"
@@ -67,5 +69,4 @@ class PostForm extends Component {
     )
   }
 }
-
 export default connect(null, {sendNewPostToDatabase, push})(PostForm)
