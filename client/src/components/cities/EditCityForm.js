@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import styled from 'styled-components'
-import {editCityInDatabase, getOneCityRoute} from '../../actions/thunk.actions.js'
+import {editCityInDatabase, getOneCityRoute} from '../../actions/thunk.cities.js'
 import Navbar from '../navbar/Navbar'
 
 class EditCityForm extends Component {
@@ -97,8 +97,8 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {getOneCityRoute, editCityInDatabase, push})(EditCityForm)
 
-// //////////////////////////////////////////////////////////////////////////////
-// / STYLED-COMPONENTS
+// /////////////////////////////////////////////////////////////////////////////
+// / / STYLED-COMPONENTS
 // /////////////////////////////////////////////////////////////////////////////
 // / /
 

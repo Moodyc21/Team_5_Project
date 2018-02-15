@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 import {connect} from 'react-redux'
-import {getOneUserRoute} from '../../actions/thunk.actions.js'
+import {getOneUserRoute} from '../../actions/thunk.users.js'
 import Navbar from '../navbar/Navbar.js'
-
 
 class UserProfile extends Component {
 
@@ -12,18 +11,20 @@ class UserProfile extends Component {
         this
             .props
             .getOneUserRoute(userId)
-        
+
     }
     componentWillReceiveProps(nextProps) {
-        this.setState({userBeingShown: {
-            id: this.props.match.params.userId,
-            username: nextProps.userBeingShown.username,
-            firstname: nextProps.userBeingShown.firstname,
-            lastname: nextProps.userBeingShown.lastname,
-            img_url: nextProps.userBeingShown.img_url,
-            description: nextProps.userBeingShown.description
+        this.setState({
+            userBeingShown: {
+                id: this.props.match.params.userId,
+                username: nextProps.userBeingShown.username,
+                firstname: nextProps.userBeingShown.firstname,
+                lastname: nextProps.userBeingShown.lastname,
+                img_url: nextProps.userBeingShown.img_url,
+                description: nextProps.userBeingShown.description
 
-        }})
+            }
+        })
     }
 
     state = {
@@ -36,18 +37,20 @@ class UserProfile extends Component {
 
         }
     }
-    
+
     render() {
-        console.log("our user",this.props.userBeingShown)
+        console.log("our user", this.props.userBeingShown)
         return (
-            
+
             <Container>
                 <div>
-                <Navbar />
+                    <Navbar/>
                 </div>
                 <h3>User Profile</h3>
                 <br/>
-                <img src={this.state.userBeingShown.img_url} alt={this.state.userBeingShown.username}/>
+                <img
+                    src={this.state.userBeingShown.img_url}
+                    alt={this.state.userBeingShown.username}/>
                 <h1>{this.state.userBeingShown.firstname} {this.state.userBeingShown.lastname}</h1>
 
                 {/* {this
@@ -60,7 +63,7 @@ class UserProfile extends Component {
                         </div>
                     ))}  */}
             </Container>
-            
+
         );
     }
 }
@@ -74,7 +77,6 @@ export default connect(mapStateToProps, {getOneUserRoute})(UserProfile);
 // /////////////////////////////////////////////////////////////////////////////
 // / / STYLED-COMPONENTS
 // /////////////////////////////////////////////////////////////////////////////
-
 
 const Container = styled.div `
     display: flex;

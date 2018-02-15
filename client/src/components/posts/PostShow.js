@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 import {connect} from 'react-redux'
-import {getOnePostRoute} from '../../actions/thunk.actions.js'
+import {getOnePostRoute} from '../../actions/thunk.posts.js'
 import Navbar from '../navbar/Navbar.js'
-
 
 class PostShow extends Component {
 
@@ -13,15 +12,16 @@ class PostShow extends Component {
         this
             .props
             .getOnePostRoute(cityId, postId)
-        
+
     }
     componentWillReceiveProps(nextProps) {
-        this.setState({postBeingShown: {
-            id: this.props.match.params.postId,
-            title: nextProps.postBeingShown.title,
-            content: nextProps.postBeingShown.content,
-
-        }})
+        this.setState({
+            postBeingShown: {
+                id: this.props.match.params.postId,
+                title: nextProps.postBeingShown.title,
+                content: nextProps.postBeingShown.content
+            }
+        })
     }
 
     state = {
@@ -31,25 +31,25 @@ class PostShow extends Component {
 
         }
     }
-    
+
     render() {
-        console.log("our post",this.props.postBeingShown)
+        console.log("our post", this.props.postBeingShown)
         return (
-            
+
             <Container>
                 <div>
-                <Navbar />
+                    <Navbar/>
                 </div>
                 <h1>Post</h1>
                 <br/>
                 <SinglePost>
-                 <h3>{this.state.postBeingShown.title}</h3>
-                 <br/>
-                <p>{this.state.postBeingShown.content}</p>
+                    <h3>{this.state.postBeingShown.title}</h3>
+                    <br/>
+                    <p>{this.state.postBeingShown.content}</p>
                 </SinglePost>
-               
+
             </Container>
-            
+
         );
     }
 }
@@ -60,9 +60,9 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {getOnePostRoute})(PostShow);
 
-///////////////////////////////////////////////////////////////////////////////
-//// STYLED-COMPONENTS
-////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
+// // STYLED-COMPONENTS
+// //////////////////////////////////////////////////////////////////////////////
 
 const Container = styled.div `
     display: flex;
@@ -80,7 +80,7 @@ const Container = styled.div `
     background-repeat:no-repeat;
     font-family: 'Montserrat', sans-serif;`
 
-    const SinglePost = styled.div`
+const SinglePost = styled.div `
     text-align: left;
     left: 20px;
     width: 70vh;

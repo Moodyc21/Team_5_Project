@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import styled from 'styled-components'
 import Navbar from '../navbar/Navbar.js'
-import {getUserRoute, deleteUserFromDatabase} from '../../actions/thunk.actions.js'
+import {getUserRoute, deleteUserFromDatabase} from '../../actions/thunk.users.js'
 
 class UserPage extends Component {
   componentWillMount() {
@@ -19,14 +19,15 @@ class UserPage extends Component {
           Home
         </button>
         <Header>
-          <div>What's Up Y'all? </div>
+          <div>What's Up Y'all?
+          </div>
         </Header>
         <div>
           <button onClick={() => this.props.push(`/users/new`)}>
             New User
           </button>
         </div>
-        
+
         <Container>
 
           {this
@@ -64,9 +65,9 @@ const mapStateToProps = (state) => {
 }
 export default connect(mapStateToProps, {push, getUserRoute, deleteUserFromDatabase})(UserPage)
 
-///////////////////////////////////////////////////////////////////////////////
-//// STYLED-COMPONENTS
-////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
+// // STYLED-COMPONENTS
+// //////////////////////////////////////////////////////////////////////////////
 
 const Body = styled.div `
     display: flex;
