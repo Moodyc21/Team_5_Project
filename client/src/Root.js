@@ -25,8 +25,10 @@ console.log(store)
 
 const Root = () => (
   <Provider store={store}>
+  
     <ConnectedRouter history={history}>
       <div>
+  
         <Route exact path="/" component={SplashPage}/>
 
         <Route exact path="/cities" component={CityPage}/>

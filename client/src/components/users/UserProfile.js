@@ -45,8 +45,8 @@ class UserProfile extends Component {
                 <div>
                 <Navbar />
                 </div>
-                User Profile Route 
-                
+                <h3>User Profile</h3>
+                <br/>
                 <img src={this.state.userBeingShown.img_url} alt={this.state.userBeingShown.username}/>
                 <h1>{this.state.userBeingShown.firstname} {this.state.userBeingShown.lastname}</h1>
 
@@ -74,12 +74,12 @@ export default connect(mapStateToProps, {getOneUserRoute})(UserProfile);
 // /////////////////////////////////////////////////////////////////////////////
 // / / STYLED-COMPONENTS
 // /////////////////////////////////////////////////////////////////////////////
-// / /
+
 
 const Container = styled.div `
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100%;
     color:black;
@@ -92,6 +92,13 @@ const Container = styled.div `
     background-repeat:no-repeat;
     font-family: 'Montserrat', sans-serif;
     /* background-color: #212121; */
+    img{
+        margin:12.5px;
+      width: 45vh;
+      height: 45vh;
+      border: 2px solid white;
+      box-shadow:5px 5px 5px rgba(255,255,255,0.45);
+    }
     button{
       border:1px solid black;
       background:none;
@@ -106,7 +113,8 @@ const Container = styled.div `
       border-radius: 5px;
       cursor: pointer;
       &:hover{
-        color: white;
+      color: white;
       background:rgba(0,0,0,0.15);
+      transform:translateY(2px);
       }};
 `

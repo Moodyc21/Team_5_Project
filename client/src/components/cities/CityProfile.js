@@ -22,7 +22,7 @@ class CityProfile extends Component {
 
       <Container>
         <div>
-          <Navbar />
+          <Navbar className="NavBox" />
         </div>
         {this
           .props
@@ -31,28 +31,16 @@ class CityProfile extends Component {
             if (city.id == cityId) {
               return (
                 <div key={i}>
-                  <h2>
-                    {city.name}</h2>
-                  <div>
-                    Name:{city.name}
-                  </div>
-                  <div>
-                    Location:{city.location}
-                  </div>
-                  <br />
-                  <div>
-                    <img src={city.img_url} alt={city.name} />
-                  </div>
-                  <div>
-                    <h3>Posts</h3>
-                  </div>
-                  <br />
-                  <div>
-                    <button onClick={() => this.props.push(`/cities/${city.id}/edit`)}>
-                      Edit {city.name}
+                  <h2>{city.name}</h2>
+                  <button onClick={() => this.props.push(`/cities/${city.id}/edit`)}>
+                    Edit
                     </button>
-                  </div>
+                  Location:{city.location}
+                  <br />
+                  <img src={city.img_url} alt={city.name} />
+                  <h2>Posts</h2>
                 </div>
+                
               )
             }
           })}
@@ -61,14 +49,14 @@ class CityProfile extends Component {
           .posts
           .map((post, i) => {
             return (
-              <div key={i}>
-                <div onClick={() => this.props.push(`/cities/${cityId}/posts/${post.id}`)}>
-                  {post.title}
+              <Post> 
+                <div key={i}>
+                  <div onClick={() => this.props.push(`/cities/${cityId}/posts/${post.id}`)}>
+                    <h3>{post.title}</h3>
+                  </div>
+                  {/* {post.content} */}
                 </div>
-                <div>
-                  {post.content}
-                </div>
-              </div>
+              </Post>
             )
           })}
       </Container>
@@ -83,10 +71,14 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, { getCityRoute, getPostsRoute, push })(CityProfile);
 
-// /////////////////////////////////////////////////////////////////////////////
-// / / STYLED-COMPONENTS
-// /////////////////////////////////////////////////////////////////////////////
-
+////////////////////////////////////////////////////////////////////////////////
+/// STYLED-COMPONENTS
+///////////////////////////////////////////////////////////////////////////////
+const NavBox = styled.div`
+display: flex;
+flex-direction: row;
+background: black;
+`
 const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -97,7 +89,7 @@ const Container = styled.div`
     width: 100%;
     position: absolute; 
     background-image:linear-gradient(white,transparent,transparent,transparent,transparent),url(https://pbs.twimg.com/media/BzrxuvVIgAAj7YE.jpg:large);
-    top: 0;
+    top: 0px;
     left: 0;
     background-size: cover;
     
@@ -108,7 +100,16 @@ const Container = styled.div`
       width: 60vh;
       height: 45vh;
       border: 2px solid white;
+      margin-bottom:20px;
       box-shadow:5px 5px 5px rgba(255,255,255,0.45);
+    }
+    h2{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color:white;
+      text-shadow:2px 2px 2px rgba(0,0,0,0.45);
     }
     button{
       border:1px solid black;
@@ -124,7 +125,24 @@ const Container = styled.div`
       border-radius: 5px;
       cursor: pointer;
       &:hover{
-        color: white;
+      color: white;
       background:rgba(0,0,0,0.15);
+      transform:translateY(2px);
       }};
+`
+const Post = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* flex-flow:wrap; */
+    text-align: left;
+    box-shadow:4px 4px 4px rgba(0,0,0,0.45);
+    cursor: pointer;
+    background: white;
+    margin:2px;
+    padding-left: 15px;
+    /* height: 40vh; */
+    width: 80vh;
+    /* overflow:scroll; */
 `

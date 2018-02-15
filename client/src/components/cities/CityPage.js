@@ -13,17 +13,18 @@ class CityPage extends Component {
   render() {
     return (
       <Body>
+        <button onClick={() => this.props.push('/')}>
+          Home
+        </button>
         <div>
           <h2>CityPage</h2>
         </div>
         <div>
           <button onClick={() => this.props.push(`/cities/new`)}>
-            Add a new City
+            New City
           </button>
         </div>
-        <button onClick={() => this.props.push('/')}>
-          Home
-        </button>
+        
         <br/>
         <Container>
           {this
@@ -61,15 +62,15 @@ const mapStateToProps = (state) => {
 }
 export default connect(mapStateToProps, {push, getCityRoute, deleteCityFromDatabase})(CityPage)
 
+///////////////////////////////////////////////////////////////////////////////
+//// STYLED-COMPONENTS
 // /////////////////////////////////////////////////////////////////////////////
-// / / STYLED-COMPONENTS
-// /////////////////////////////////////////////////////////////////////////////
-// / /
+
 
 const Body = styled.div `
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100%;
     color:black;
@@ -112,8 +113,9 @@ const Body = styled.div `
       border-radius: 5px;
       cursor: pointer;
       &:hover{
-        color: white;
+      color: white;
       background:rgba(0,0,0,0.15);
+      transform:translateY(2px);
       }};
 `
 
@@ -168,6 +170,7 @@ const CityBox = styled.div `
     border: 1px solid darkgray;
     background: rgba(255,255,255,0.55);
     font-size: 2.25vh;
+    cursor: pointer;
     box-shadow: 3px 3px 0px #3f3f3f;
     img {
         width: 38vh;
@@ -183,16 +186,6 @@ const CityBox = styled.div `
         box-shadow: 1.5px 1.5px 0px #7e7e7e;
         z-index: 3;
     }
-    /* input{
-      display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-      border:1px solid black;
-      background:none;
-      border-radius:2px;
-      width: 20vh;
-    } */
     button{
       border:1px solid black;
       background:none;

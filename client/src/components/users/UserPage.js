@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import styled from 'styled-components'
+import Navbar from '../navbar/Navbar.js'
 import {getUserRoute, deleteUserFromDatabase} from '../../actions/thunk.actions.js'
 
 class UserPage extends Component {
@@ -14,17 +15,18 @@ class UserPage extends Component {
   render() {
     return (
       <Body>
+        <button onClick={() => this.props.push('/')}>
+          Home
+        </button>
         <Header>
-          <div>Welcome to User Page</div>
+          <div>What's Up Y'all? </div>
         </Header>
         <div>
           <button onClick={() => this.props.push(`/users/new`)}>
             New User
           </button>
         </div>
-        <button onClick={() => this.props.push('/')}>
-          Home
-        </button>
+        
         <Container>
 
           {this
@@ -62,14 +64,14 @@ const mapStateToProps = (state) => {
 }
 export default connect(mapStateToProps, {push, getUserRoute, deleteUserFromDatabase})(UserPage)
 
-// /////////////////////////////////////////////////////////////////////////////
-// / / STYLED-COMPONENTS
-// //////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+//// STYLED-COMPONENTS
+////////////////////////////////////////////////////////////////////////////////
 
 const Body = styled.div `
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100%;
     color:black;
@@ -96,8 +98,9 @@ const Body = styled.div `
       border-radius: 5px;
       cursor: pointer;
       &:hover{
-        color: white;
+      color: white;
       background:rgba(0,0,0,0.15);
+      transform:translateY(2px);
       }};
 `
 
@@ -123,10 +126,10 @@ const Container = styled.div `
 `;
 
 const Header = styled.h1 `
-    margin: 20 auto;
-    color: white;
+    margin: 40px auto;
+    
     font-size: 3vh;
-    text-shadow: 2.5px 2.5px 0px #3f3f3f;
+    text-shadow: 1.5px 1.5px 0px whitesmoke;
     /* border-bottom: thin solid white; */
 `;
 
