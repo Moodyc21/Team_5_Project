@@ -6,11 +6,28 @@ import Navbar from '../navbar/Navbar'
 
 class EditPostForm extends Component {
 
+  componentWillMount(cityId, postId) {
+    this
+      .props
+      .getOnePostRoute(this.props.match.params.cityId, this.props.match.params.postId)
+      
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      postBeingEdited: {
+        title: nextProps.postBeingEdited.title,
+        content: nextProps.postBeingEdited.content,
+      }
+    })
+  }
+
+
   state = {
     postBeingEdited: {
-      id: this.props.post._id,
-      title: this.props.post.title,
-      content: this.props.post.content
+      user_id: 1,
+      title: "",
+      content: ""
     }
   }
 
@@ -26,9 +43,17 @@ class EditPostForm extends Component {
   }
 
   handleEditPost = () => {
+    const postId = this.props.match.params.postId
+    const cityId = this.props.match.params.cityId
+    const editPost = this.state.postBeingEdited
+    editPost.city_id = cityId
+    editPost.post_id = postId
     this
       .props
-      .editPostInDatabase(this.state.postBeingEdited)
+      .editPostInDatabase(cityId, editPost)
+      .then(() => {
+        (this.props.push(`/cities/${cityId}/posts/${postId}/show`))
+      })
   }
 
   render() {

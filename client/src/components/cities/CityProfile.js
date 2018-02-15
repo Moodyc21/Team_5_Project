@@ -53,7 +53,7 @@ class CityProfile extends Component {
               <Post>
                 <div key={i}>
                   <div>
-                    <h3>{post.title}</h3>
+                    <h3 onClick={() => this.props.push(`/cities/${cityId}/posts/${post.id}/show`)}>{post.title}</h3>
                   </div>
                   {/* {post.content} */}
                 </div>
