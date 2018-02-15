@@ -16,7 +16,7 @@ class EditCityForm extends Component {
   componentWillReceiveProps(nextProps) {
     this.setState({
       cityBeingEdited: {
-        id: this.props.match.params.userId,
+        id: this.props.match.params.cityId,
         name: nextProps.cityBeingEdited.name,
         location: nextProps.cityBeingEdited.location,
         img_url: nextProps.cityBeingEdited.img_url
@@ -57,8 +57,8 @@ class EditCityForm extends Component {
     return (
       <Container>
         <div>
-          <Navbar />
-          </div>
+          <Navbar/>
+        </div>
         <div>
           Name:</div>
         <input
@@ -97,10 +97,10 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {getOneCityRoute, editCityInDatabase, push})(EditCityForm)
 
-////////////////////////////////////////////////////////////////////////////////
-// / STYLED-COMPONENTS
 // //////////////////////////////////////////////////////////////////////////////
-// /
+// / STYLED-COMPONENTS
+// /////////////////////////////////////////////////////////////////////////////
+// / /
 
 const Container = styled.div `
     display: flex;
