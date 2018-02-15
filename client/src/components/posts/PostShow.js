@@ -36,18 +36,19 @@ class PostShow extends Component {
         console.log("our post",this.props.postBeingShown)
         return (
             
-            <div>
+            <Container>
                 <div>
                 <Navbar />
                 </div>
                 <h1>Post</h1>
                 <br/>
+                <SinglePost>
                  <h3>{this.state.postBeingShown.title}</h3>
                  <br/>
                 <p>{this.state.postBeingShown.content}</p>
-
+                </SinglePost>
                
-            </div>
+            </Container>
             
         );
     }
@@ -58,3 +59,35 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {getOnePostRoute})(PostShow);
+
+///////////////////////////////////////////////////////////////////////////////
+//// STYLED-COMPONENTS
+////////////////////////////////////////////////////////////////////////////////
+
+const Container = styled.div `
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    color:black;
+    width: 100%;
+    position: absolute; 
+    background-image:linear-gradient(white,transparent,transparent,transparent,transparent),url(https://pbs.twimg.com/media/BzrxuvVIgAAj7YE.jpg:large);
+    top: 50px;
+    left: 0;
+    background-size: cover;
+    background-repeat:no-repeat;
+    font-family: 'Montserrat', sans-serif;`
+
+    const SinglePost = styled.div`
+    text-align: left;
+    left: 20px;
+    width: 70vh;
+    height: 40vh;
+    background: rgba(255,255,255,0.75);
+    border: 1px solid darkgray;
+    box-shadow: 5px 5px 5px darkgray;
+    padding: 20px;
+
+    `
