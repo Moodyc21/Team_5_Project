@@ -31,7 +31,7 @@ class PostPage extends Component {
             .map((post, i) => {
               return (
                 <div key={i}>
-                  <div>
+                  <div onClick={() => this.props.push(`/cities/${cityId}/posts/${post.id}/show`)}>
                     Title: {post.title}
                     <br/>
                     Content: {post.content}
