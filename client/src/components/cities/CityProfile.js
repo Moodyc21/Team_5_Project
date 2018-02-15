@@ -138,8 +138,8 @@ const Post = styled.div`
     /* flex-flow:wrap; */
     text-align: left;
     box-shadow:4px 4px 4px rgba(0,0,0,0.45);
+    background:rgba(255,255,255,0.55);
     cursor: pointer;
-    background: white;
     margin:2px;
     padding-left: 15px;
     /* height: 40vh; */

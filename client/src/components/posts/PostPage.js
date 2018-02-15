@@ -89,7 +89,7 @@ const Post = styled.div`
     text-align: left;
     box-shadow:4px 4px 4px rgba(0,0,0,0.45);
     cursor: pointer;
-    background: rgb(255,251,255);
+    background:rgba(255,255,255,0.45);
     margin:2px;
     border: 1px solid darkgray;
     padding: 15px;
